@@ -1,0 +1,7 @@
+{
+  "name": "System_Design",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
