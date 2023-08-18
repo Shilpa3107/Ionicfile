@@ -4,14 +4,17 @@ import { Component } from '@angular/core';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
+
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'Home', url: '/folder/home', icon: 'home' },
+    { title: 'Methodology', url: '/folder/methodology', icon: 'bulb' },
+    { title: 'Case Studies', url: '/folder/casestudies', icon: 'book' },
+    { title: 'Best Practices', url: '/folder/practices', icon:'laptop' },
+    { title: 'Tool & Resources', url: '/folder/tool', icon: 'hammer' },
+    { title: 'Blog', url: '/folder/blog', icon: 'pencil' },
+    { title: 'About Us', url: '/folder/about', icon: 'people'},
+    { title: 'Contact Us', url: '/folder/contact', icon:'mail'}
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}
