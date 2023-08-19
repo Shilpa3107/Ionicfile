@@ -13,9 +13,46 @@
       <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
   </ion-header>
+    <ion-content [fullscreen]="true" class="ion-padding">
+      <section class = front-section>
+        <div>
+       <h1>WELCOME 
+        <br>TO 
+        <br>SYSTEM 
+        <br>DESIGN</h1>
+       </div>
+       <img src = "https://img.freepik.com/premium-photo/laptop-computer-notebook-glasses-coffee-cup-flower-pot-green-background-top-view_35674-12153.jpg?w=1060" alt ="">
+    </section>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@500&family=Dosis&family=Josefin+Sans:wght@200;300&family=Lobster&family=Pacifico&family=Roboto+Slab:wght@700&family=Roboto:ital,wght@1,100&display=swap');
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+h1{
+   text-align: center;
+   text-transform: capitalize;
+   font-size: 45px;
+   font-family: 'Dosis', sans-serif;
+   position: absolute;
+   bottom: 100px;
+   right: 90px;
+   font-weight: 900;
+}
+img{
+   width:100%;
+   height: 600px;
+}
+@media(max-width:915px){
+h1{
+  font-size: 30px;
+  bottom:10px;
+  font-weight: 600;
+  right:8px;
+}
+}
+    </style>
+    </ion-content>
+     
+    <!-- <strong class="capitalize">{{ folder }}</strong>
+    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
+  
 </ion-content>
