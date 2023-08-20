@@ -3,8 +3,9 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+          <ion-list-header>System Design Tutorial</ion-list-header>
+         <br>
+          <!-- <ion-note>hi@ionicframework.com</ion-note> -->
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
@@ -15,15 +16,43 @@
         </ion-list>
 
         <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
+          <ion-list-header style="font-weight: 600; color: black">Sidebar</ion-list-header>
+          <ng-container *ngFor="let label of items">
+            <ion-item lines="none">
+              <ion-label (click)="toggleSubtopic(label)">
+                <ion-icon
+                  [name]="isSubtopicExpanded(label) ? 'arrow-down-circle' : 'arrow-forward-circle'"
+                  class="toggle-icon"
+                  [class.expanded]="isSubtopicExpanded(label)"
+                  style="color: black"
+                ></ion-icon>
+                {{ label.name }}
+              </ion-label>
+            </ion-item>
+            <ion-list *ngIf="isSubtopicExpanded(label)">
+              <ion-item *ngFor="let subtopic of label.subtopics" lines="none">
+                <ion-label>{{ subtopic.name }}</ion-label>
+              </ion-item>
+            </ion-list>
+            <style>
+              .toggle-icon {
+                  transition: transform 0.3s ease;
+               }
 
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon aria-hidden="true" slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
+              .expanded {
+                  transform: rotate(10deg);
+                }
+
+              .collapsed {
+                   transform: rotate(0);
+                }
+            </style>
+          </ng-container>
         </ion-list>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
+    <ion-router-outlet id="main-content">
+      <!-- {{c.content}} -->
+    </ion-router-outlet>
   </ion-split-pane>
 </ion-app>
