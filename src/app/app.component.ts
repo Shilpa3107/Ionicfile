@@ -45,7 +45,8 @@ export class AppComponent {
         const menuItem = this.appPages.find(page => page.lastword === lastSegment);
         if (menuItem) {
           // this.selectedTopic = menuItem.lastword;
-          this.dataurl = `/assets/${menuItem.lastword}.json`; // Correctly use backticks for template literals
+          this.dataurl = `/assets/${menuItem.lastword}.json`;
+          // Correctly use backticks for template literals
           this.fetchData();
         }
       }
@@ -58,7 +59,10 @@ export class AppComponent {
       .then(json => {
         this.items = json.topics;
         console.log('Topic name : ', this.items);
+       
       });
+      
+
   }
   
 
