@@ -11,6 +11,7 @@ export class AppComponent {
   dataurl:string ="";
   items: any;
   public expandedSubtopics: { [key: string]: boolean } = {};
+  selectedMenu: string | undefined;
 
   public toggleSubtopic(label: any): void {
     if (this.expandedSubtopics[label.name]) {
@@ -24,18 +25,16 @@ export class AppComponent {
     return this.expandedSubtopics[label.name] === true;
   }
   public appPages = [
-    { title: 'Home', url: '/folder/home', icon: 'home',lastword: 'home' },
+    { title: 'Home', url: '/folder/home', icon: 'home',lastword: 'home' , ind:'1'},
     { title: 'Methodology', url: '/folder/methodology', icon: 'bulb'},
-    { title: 'Case Studies', url: '/folder/casestudies', icon: 'book',lastword:'casestudies' },
-    { title: 'Best Practices', url: '/folder/practices', icon:'laptop' ,lastword:'practices'},
-    { title: 'Tool & Resources', url: '/folder/tool', icon: 'hammer',lastword:'tool' },
+    { title: 'Case Studies', url: '/folder/casestudies', icon: 'book',lastword:'casestudies',ind:'2' },
+    { title: 'Best Practices', url: '/folder/practices', icon:'laptop' ,lastword:'practices',ind:'3'},
+    { title: 'Tool & Resources', url: '/folder/tool', icon: 'hammer',lastword:'tool' ,ind:'4'},
     { title: 'Blog', url: '/folder/blog', icon: 'pencil' },
     { title: 'About Us', url: '/folder/about', icon: 'people'},
     { title: 'Contact Us', url: '/folder/contact', icon:'mail'}
   ];
 
-  
-  public selectedTopic: string ='home';
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
@@ -44,7 +43,8 @@ export class AppComponent {
         const lastSegment = segments[segments.length - 1];
         const menuItem = this.appPages.find(page => page.lastword === lastSegment);
         if (menuItem) {
-          // this.selectedTopic = menuItem.lastword;
+          this.selectedMenu = menuItem.lastword;
+          console.log("SelectedMenu : ",this.selectedMenu)
           this.dataurl = `/assets/${menuItem.lastword}.json`;
           // Correctly use backticks for template literals
           this.fetchData();
@@ -52,6 +52,7 @@ export class AppComponent {
       }
     });
   }
+  
 
   private fetchData(): void {
     fetch(this.dataurl)
@@ -65,5 +66,11 @@ export class AppComponent {
 
   }
   
+  public navigateToSubtopic(selectedSubtopic: string): void {
+    const menuItem = this.appPages.find((page) => page.title === this.selectedMenu);
+    if (menuItem) {
+      this.router.navigate([menuItem.url, selectedSubtopic]);
+    }
+  }
 
 }
