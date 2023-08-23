@@ -1,4 +1,4 @@
-<div *ngIf="title === 'Home'">
+<div *ngIf="title === 'home'">
   <div class="ads">
     <!-- Your ad code goes here -->
     <img src="path/to/your/ad-image.jpg" alt="Advertisement">
@@ -62,7 +62,7 @@ text-align: left;
     </style>
 </div>
 
-<div *ngIf="title === 'Methodology'">
+<div *ngIf="title === 'methodology'">
   <h1>Methodology</h1>
     <hr>
     <br>
@@ -125,6 +125,106 @@ Here are some important points to consider when designing a software system:
 <li>Cost-effectiveness: The system should be designed to be cost-effective, with a focus on minimizing development and operational costs while still meeting the requirements.</li>
 </ul>
 </li>
+</ul>
+</div>
+</div>
+<div *ngIf="title === 'casestudies'">
+ 
+    <h1>Case Studies</h1>
+    <hr>
+    <br>
+    <div>
+            <p>A case study in system design is an in-depth analysis of a real-world system. It can be used to learn about the system's design, implementation, and operation. Case studies can be used to identify best practices, identify potential problems, and learn from the experiences of others.</p>
+    <p>
+        <h3>Requirements</h3>
+        Requirements: This is an important step as you need to narrow down to a specific goal so you don't over complicate things. Clarifying your goal helps focus on the main features and remove any ambiguities and identify potential bottlenecks. We can divide our requirements into two parts:
+        <ul>
+        <li>Functional Requirements
+Functional requirements are requirements the system has to deliver. These are the main goals of the system. Functional requirements include things like business rules, authentication, administrative functions, authorization levels, etc.
+</li>
+<li>Non-Functional Requirements
+Non-functional requirements restrict the system design through different qualities. They need to be analyzed, and if they are not fulfilled, they can harm the business plan or goals. Non-functional requirements include performance, security, reliability, scalability, maintainability, availability, etc. All these different parameters help you analyze and determine if your system is designed properly.
+</li>
+</ul>
+Let's take Twitter, some functional requirements can include:
+<ul>
+<li>Users should be able to post new tweets</li>
+<li>Users should be able to follow other user</li>
+<li>Users should be able to mark tweets as favorite</li>
+</ul>
+
+The non-functional requirements can include:
+<ul>
+<li>High availability</li>
+<li>Consistency</li>
+<li>A latency of around 200ms for timeline generation</li>
+</ul>
+These are some basic requirements that can further be extended to include searching, replying to tweets, tagging users, notifications, trending topics, etc.
+
+<p>
+    <h3>Detailed Design</h3>
+    <p>
+        Now that you have identified your core components, it's time to dig deeper into them. You want to start by analyzing the different approaches to solving a given problem and the pros/cons of each potential solution.
+
+It's also important to do tradeoff analysis at this stage. Considerations like these are commonly addressed during this step.
+    </p>
+    <ul>
+        <li>How much data do we need to cache to speed up the response time?</li>
+        <li>Where should we need to use load-balancer?</li>
+        <li>Do w need to partition data to distribute to multiple databases?</li>
+    </ul>
+
+<p>
+    <h3>Deployment</h3>
+Deploying a system design typically involves a series of steps to make the designed system operational and accessible to its intended users. The exact deployment process can vary depending on the nature of the system and the technologies involved, but here is a general overview of the steps involved in deploying a system design:
+<ul>
+<li> Infrastructure Provisioning: Determine the necessary infrastructure to support the system design, such as servers, networking equipment, storage, and any other required hardware or cloud resources. Provision or acquire the infrastructure as needed.</li>
+<li> Software Installation and Configuration: Install and configure the required software components of the system design on the infrastructure. This may involve setting up operating systems, databases, web servers, application servers, and other software dependencies.</li>
+<li>  Integration and Testing: Integrate different components of the system design and conduct thorough testing to ensure that the system functions as expected. This includes testing individual components, interfaces between components, and overall system behavior. It is crucial to identify and address any issues or bugs during this phase.</li>
+<li>  Data Migration and Setup: If the system design involves existing data, migrate the data to the newly deployed system. This may involve data transformation, mapping, and loading procedures to ensure that the data is properly formatted and accessible to the system.</li>
+<li>  Security and Access Control: Implement security measures to protect the system and its data. This may include setting up user authentication, access controls, encryption, firewalls, and other security mechanisms based on the system's requirements and industry best practices.</li>
+<li>  Performance Optimization: Fine-tune the system for optimal performance, such as configuring caching mechanisms, optimizing database queries, or scaling the system to handle anticipated user loads.</li>
+<li>  Rollout and Monitoring: Deploy the system design to the production environment and gradually make it available to users. Monitor the system closely to identify any performance or stability issues and address them promptly.</li>
+<li>  Documentation and Training: Create comprehensive documentation that describes the system's architecture, components, configuration, and maintenance procedures. Provide training to relevant personnel who will be responsible for operating and maintaining the system.</li>
+<li>  Continuous Improvement: Monitor and collect feedback from users to identify areas for improvement. Plan and implement iterative updates and enhancements to the system design based on user needs and changing requirements.</li>
+</ul>
+It's important to note that the deployment process may vary depending on the specific technology stack, development methodologies, and organizational practices used in a particular project or company.
+
+<p>
+    <h3>Maintenance</h3>
+Maintenance of a system design is an essential aspect of ensuring its continued functionality, reliability, and security. Maintenance involves activities aimed at monitoring, supporting, and enhancing the system throughout its lifecycle. Here are some key considerations for system design maintenance:
+<ul>
+<li> Monitoring and Incident Management: Implement monitoring tools and processes to continuously monitor the system's performance, availability, and security. Set up alerts and notifications to promptly address any issues or incidents that may arise. Establish incident management procedures to handle and resolve problems effectively.</li>
+<li>  Bug Fixes and Updates: As users interact with the system, they may encounter bugs or issues that need to be addressed. Regularly analyze user feedback, conduct testing, and release bug fixes and updates to improve system functionality, stability, and user experience.</li>
+<li> Security Updates and Patches: Stay vigilant about emerging security threats and vulnerabilities. Keep the system up to date with security updates, patches, and fixes to mitigate potential risks. Regularly review and update security configurations and access controls as necessary.</li>
+<li>  Performance Optimization: Continuously monitor and optimize system performance. Analyze performance metrics, identify bottlenecks, and make necessary adjustments to improve the system's speed, efficiency, and scalability. This may involve tuning database queries, optimizing algorithms, or scaling resources as needed.</li>
+<li>  Data Management: Ensure the integrity, availability, and accessibility of the system's data. Implement backup and recovery mechanisms to protect against data loss. Regularly review data storage requirements, archive or purge outdated data, and optimize database performance.</li>
+<li>  System Upgrades and Enhancements: As technology advances and user requirements evolve, consider system upgrades and enhancements. Evaluate new features, frameworks, or technologies that could benefit the system and plan for their integration. Perform thorough testing and rollout upgrades carefully to minimize disruptions.</li>
+<li>  Documentation and Knowledge Base: Maintain up-to-date documentation that captures the system's architecture, configuration, and troubleshooting procedures. Create a knowledge base or a centralized repository of information to assist support teams and facilitate future maintenance tasks.</li>
+<li>  User Support and Training: Provide ongoing user support, addressing inquiries, troubleshooting issues, and assisting with system-related questions. Offer training sessions or resources to keep users informed about new features or changes in the system.</li>
+<li> Compliance and Regulatory Updates: Stay informed about relevant industry regulations, data protection laws, and compliance requirements. Regularly review and update the system's configuration and processes to ensure compliance with applicable standards and regulations.</li>
+<li>  Continuous Improvement: Encourage feedback from users and stakeholders to identify areas for improvement. Use analytics and user insights to understand usage patterns, identify pain points, and prioritize enhancements that align with user needs and business objectives.</li>
+</ul>
+Maintenance activities are typically carried out by a dedicated team or individuals responsible for system operations and support. The frequency and intensity of maintenance tasks will vary depending on the complexity of the system, the user base, and the criticality of the system's function to the organization.
+</div>
+</div>
+<div *ngIf="title === 'practices'">
+    <h1>Best-Practices</h1>
+    <hr>
+    <br>
+    <div>
+    <p>When it comes to system design, several best practices can help ensure the creation of robust, scalable, and maintainable systems. Here are some key best practices to consider:
+        <ul>
+<li>Modularity and Separation of Concerns: Divide the system into modular components that have well-defined responsibilities. Each component should focus on a specific task or concern, making the system easier to understand, develop, test, and maintain. Apply principles like the Single Responsibility Principle (SRP) and the Separation of Concerns (SoC) to achieve modular designs.</li>
+<li>Scalability and Performance: Design the system with scalability in mind to handle increased loads and future growth. Consider horizontal scalability by distributing the workload across multiple servers or services. Optimize performance by employing efficient algorithms, minimizing resource consumption, and caching frequently accessed data.</li>
+<li>Reliability and Fault Tolerance: Design the system to be resilient to failures and ensure high availability. Use techniques such as redundancy, replication, and fault tolerance mechanisms to minimize the impact of individual component failures. Implement error handling and recovery strategies to gracefully handle errors and maintain system functionality.</li>
+<li>Security: Incorporate security measures into the system design from the start. Follow security best practices to protect against common vulnerabilities, such as authentication and authorization mechanisms, input validation, encryption, and secure communication protocols. Regularly update and patch system dependencies to address security vulnerabilities.</li>
+<li>Maintainability: Design the system to be easily maintainable over its lifespan. Write clean, readable, and well-documented code. Apply software design principles such as loose coupling, high cohesion, and encapsulation. Use design patterns and architectural patterns to promote maintainability and extensibility.</li>                              
+<li>Testability: Design the system with testability in mind to facilitate the development of comprehensive test suites. Use techniques like unit testing, integration testing, and automated testing to validate the system's behavior and catch issues early in the development cycle. Employ tools and frameworks that support effective testing.</li>
+<li>Flexibility and Extensibility: Anticipate future changes and design the system to be flexible and extensible. Use modular architectures and well-defined interfaces to allow for the addition or modification of components without affecting the entire system. Follow open-closed principles, favoring extension over modification.</li>
+<li>Performance Monitoring and Logging: Incorporate robust monitoring and logging capabilities into the system. Implement tools and mechanisms to collect performance metrics, track system behavior, and capture error logs. This information can aid in identifying bottlenecks, diagnosing issues, and making data-driven improvements.</li>
+<li>Use Established Patterns and Frameworks: Leverage established design patterns and frameworks that address common challenges in system design. These patterns and frameworks often come with a wealth of community knowledge, proven solutions, and resources that can accelerate development and reduce risks.</li>
+<li>Iterative Design and Continuous Improvement: Embrace an iterative design process that allows for feedback, refinement, and continuous improvement. Solicit feedback from users and stakeholders, learn from usage patterns, and iterate on the system design based on insights gained. Continuously assess the system's performance, security, and user satisfaction to identify areas for enhancement.</li>
 </ul>
 </div>
 </div>
