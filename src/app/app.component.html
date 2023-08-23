@@ -18,7 +18,7 @@
         <ion-list id="labels-list" >
           <ion-list-header style="font-weight: 600; color: black">Sidebar</ion-list-header>
           <ng-container *ngFor="let label of items" >
-            <ion-item routerDirection="root" [routerLink] ="[selectedMenu?.toLowerCase(),label.url]" detail = "false" routerLinkActive="selected"
+            <ion-item routerDirection="root" [routerLink] ="['folder',selectedMenu?.toLowerCase(),label.url]" detail = "false" routerLinkActive="selected"
             lines="none">
               <ion-label (click)="toggleSubtopic(label)">
                 <ion-icon
@@ -31,7 +31,8 @@
               </ion-label>
             </ion-item>
             <ion-list *ngIf="isSubtopicExpanded(label)">
-              <ion-item *ngFor="let subtopic of label.subtopics" lines="none"   routerDirection="root" [routerLink] ="[selectedMenu?.toLowerCase(), label.url + '_' + subtopic.url]"  detail = "false" routerLinkActive="selected">
+              <ion-item *ngFor="let subtopic of label.subtopics" lines="none"   routerDirection="root" [routerLink] ="['folder',selectedMenu?.toLowerCase(), label.url + '_' + subtopic.url]"  detail = "false" routerLinkActive="selected" 
+              a (click)="doSomeLogic( label.url,subtopic.url, selectedMenu?.toLowerCase())">
                 <ion-label>{{ subtopic.name }}</ion-label>
               </ion-item>
             </ion-list>
@@ -52,7 +53,13 @@
         </ion-list>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="main-content">
+    <ion-router-outlet id="main-content" >
+      <!-- <div *ngFor="let submenu of label.subtopics"   a (click)="doSomeLogic( label.url,submenu.url, selectedMenu?.toLowerCase())">
+        <h2>{{submenu.name}}</h2>
+        <br>
+        <hr>
+        <p>{{submenu.content}}</p>
+      </div> -->
       <!-- {{c.content}} -->
     </ion-router-outlet>
   </ion-split-pane>

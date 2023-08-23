@@ -60,17 +60,23 @@ export class AppComponent {
       .then(json => {
         this.items = json.topics;
         console.log('Topic name : ', this.items);
-       
+ 
       });
       
 
   }
-  
-  public navigateToSubtopic(selectedSubtopic: string): void {
-    const menuItem = this.appPages.find((page) => page.title === this.selectedMenu);
-    if (menuItem) {
-      this.router.navigate([menuItem.url, selectedSubtopic]);
-    }
+  doSomeLogic(label: string, sub: string, sm?: string) {
+    console.log("Function called");
+    console.log(sm?.toLowerCase())
+    console.log(label);
+    console.log(sub)
+    const encodedLabel = encodeURIComponent(label);
+    const encodedSub = encodeURIComponent(sub);
+    const url = `folder/${sm?.toLowerCase()}/${encodedLabel}_${encodedSub}`;
+    console.log(url);
+    this.router.navigateByUrl(url);
+    console.log("Function call ended");
   }
+  
 
 }
