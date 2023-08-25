@@ -12,7 +12,7 @@ export class AppComponent {
   items: any;
   public expandedSubtopics: { [key: string]: boolean } = {};
   selectedMenu: string | undefined;
-
+  public selectedtitle: string='';
   public toggleSubtopic(label: any): void {
     if (this.expandedSubtopics[label.name]) {
       this.expandedSubtopics[label.name] = false;
@@ -43,7 +43,7 @@ export class AppComponent {
         const lastSegment = segments[segments.length - 1];
         const menuItem = this.appPages.find(page => page.lastword === lastSegment);
         if (menuItem) {
-          this.selectedMenu = menuItem.lastword;
+          this.selectedMenu = menuItem.url;
           console.log("SelectedMenu : ",this.selectedMenu)
           this.dataurl = `/assets/${menuItem.lastword}.json`;
           // Correctly use backticks for template literals
