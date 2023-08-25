@@ -8,12 +8,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FolderPage implements OnInit {
   public folder!: string;
+  
+  topicurl : any;
+  subtopicurl: any;
   private activatedRoute = inject(ActivatedRoute);
-  constructor() {}
+  constructor() { }
 
+  
   ngOnInit() {
-    // this.folder = "System Design Tutorial"
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
     console.log("Folder : ",this.folder)
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.topicurl=params.get('_')?.split('_')[0];
+      this.subtopicurl = params.get('_')?.split('_')[1];
+    });
+   
   }
 }
