@@ -13,46 +13,32 @@
       <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
   </ion-header>
-    <ion-content [fullscreen]="true" class="ion-padding">
-     <!-- {{items}} -->
-     <div class="main-content">
-      <div class="ads">
-        <!-- Your ad code goes here -->
-        <img src="path/to/your/ad-image.jpg" alt="Advertisement">
-      </div>
-      <div class="content">
-       <h2> Welcome to the System Design Tutorial</h2>
-        <hr>
-        
-        <p>
-          System design is a critical aspect of building robust and scalable software applications. It involves designing the architecture, components, and interactions of a system to meet specific requirements and ensure efficient performance.
-        </p>
-        <p>
-          This website provides comprehensive tutorials and resources for learning system design principles, best practices, and methodologies. Whether you're a beginner or an experienced developer, you'll find valuable insights and practical examples to enhance your system design skills.
-        </p>
-        <p>
-          Explore the different topics in the sidebar to learn about various aspects of system design, including architecture patterns, scalability, performance optimization, and more. Each topic provides detailed explanations, case studies, and practical tips to help you master the art of system design.
-        </p>
-        <p>
-          We're dedicated to providing you with high-quality content and ensuring an excellent learning experience. If you have any questions or suggestions, feel free to reach out to us via the contact form or the provided contact information.
-        </p>
-        <p>
-          Start your journey to becoming a proficient system designer today!
-        </p>
-      </div>
-      </div>
-      <!-- <section class = front-section>
-        <div>
-       <h1>WELCOME 
-        <br>TO 
-        <br>SYSTEM 
-        <br>DESIGN</h1>
-       </div>
-       <img src = "https://img.freepik.com/premium-photo/laptop-computer-notebook-glasses-coffee-cup-flower-pot-green-background-top-view_35674-12153.jpg?w=1060" alt ="">
-    </section> -->
-    </ion-content>
-     
-    <!-- <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
   
+  <!-- Display subtopic content if available -->
+  <div class="main-content"  *ngIf="subtopicContent; else noSubtopicContent">
+    <div>
+      <h2>{{ part.replaceAll("-"," ")}}</h2>
+      <p>{{ subtopicContent }}</p>
+    </div>
+    
+  </div>
+
+  <!-- Display default content if subtopic content is not available -->
+  <ng-template #noSubtopicContent>
+  <div class="content">
+    <h2>Welcome to the System Design Tutorial</h2>
+    <hr>
+    
+    <p>
+      System design is a critical aspect of building robust and scalable software applications. It involves designing the architecture, components, and interactions of a system to meet specific requirements and ensure efficient performance.
+    </p>
+    <!-- ... (rest of the default content) ... -->
+  </div>
+
+  <!-- Advertisement section -->
+  <div class="ads">
+    <!-- Your ad code goes here -->
+    <img src="path/to/your/ad-image.jpg" alt="Advertisement">
+  </div>
+  </ng-template>
 </ion-content>

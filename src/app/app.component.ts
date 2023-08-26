@@ -11,7 +11,7 @@ export class AppComponent {
   dataurl:string ="";
   items: any;
   public expandedSubtopics: { [key: string]: boolean } = {};
-  selectedMenu: string | undefined;
+  selectedMenu: string ="";
   public selectedtitle: string='';
   public toggleSubtopic(label: any): void {
     if (this.expandedSubtopics[label.name]) {
@@ -65,14 +65,15 @@ export class AppComponent {
       
 
   }
-  doSomeLogic(label: string, sub: string, sm?: string) {
+  doSomeLogic(label: string, sub: string, sm: string) {
     console.log("Function called");
-    console.log(sm?.toLowerCase())
+    console.log(sm)
     console.log(label);
     console.log(sub)
+    // const encodedsm = encodeURIComponent(sm);
     const encodedLabel = encodeURIComponent(label);
     const encodedSub = encodeURIComponent(sub);
-    const url = `folder/${sm?.toLowerCase()}/${encodedLabel}_${encodedSub}`;
+    const url = `${sm}/${encodedLabel}_${encodedSub}`;
     console.log(url);
     this.router.navigateByUrl(url);
     console.log("Function call ended");

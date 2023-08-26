@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: FolderPage
+  },{
+    path: 'folder/:id/:subtopic',
+    component: FolderPage
   }
+  
 ];
 
 @NgModule({

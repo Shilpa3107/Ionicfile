@@ -32,7 +32,7 @@
             </ion-item>
             <ion-list *ngIf="isSubtopicExpanded(label)">
               <ion-item *ngFor="let subtopic of label.subtopics" lines="none"   routerDirection="root" [routerLink] ="[selectedMenu, label.url + '_' + subtopic.url]"  detail = "false" routerLinkActive="selected" 
-              a (click)="doSomeLogic( label.url,subtopic.url, selectedMenu?.toLowerCase())">
+              a (click)="doSomeLogic( label.url,subtopic.url, selectedMenu)">
                 <ion-label>{{ subtopic.name }}</ion-label>
               </ion-item>
             </ion-list>
