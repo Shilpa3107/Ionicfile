@@ -18,8 +18,7 @@
         <ion-list id="labels-list" >
           <ion-list-header style="font-weight: 600; color: black">Sidebar</ion-list-header>
           <ng-container *ngFor="let label of items" >
-            <ion-item routerDirection="root" [routerLink] ="[selectedMenu,label.url]" detail = "false" routerLinkActive="selected"
-            lines="none">
+            <ion-item detail="false" lines="none">
               <ion-label (click)="toggleSubtopic(label)">
                 <ion-icon
                   [name]="isSubtopicExpanded(label) ? 'arrow-down-circle' : 'arrow-forward-circle'"
@@ -30,6 +29,7 @@
                 {{ label.name }}
               </ion-label>
             </ion-item>
+            
             <ion-list *ngIf="isSubtopicExpanded(label)">
               <ion-item *ngFor="let subtopic of label.subtopics" lines="none"   routerDirection="root" [routerLink] ="[selectedMenu, label.url + '_' + subtopic.url]"  detail = "false" routerLinkActive="selected" 
               a (click)="doSomeLogic( label.url,subtopic.url, selectedMenu)">
