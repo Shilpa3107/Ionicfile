@@ -15,30 +15,55 @@
   </ion-header>
   
   <!-- Display subtopic content if available -->
-  <div class="main-content"  *ngIf="subtopicContent; else noSubtopicContent">
+  <div class="main-content" *ngIf="subtopicContent !== 'noSubtopicContent'; else noSubtopicContent">
     <div>
-      <h2 style = "text-align: center;">{{ part.replaceAll("-"," ")}}</h2>
-      <p>{{ subtopicContent }}</p>
+      <h2 style="text-align: center;">{{ part.replaceAll("-"," ")}}</h2>
+      <p [innerHTML]="subtopicContent"></p>
     </div>
-    
   </div>
 
   <!-- Display default content if subtopic content is not available -->
   <ng-template #noSubtopicContent>
-  <div class="content">
-    <h2>Welcome to the System Design Tutorial</h2>
-    <hr>
-    
-    <p>
-      System design is a critical aspect of building robust and scalable software applications. It involves designing the architecture, components, and interactions of a system to meet specific requirements and ensure efficient performance.
-    </p>
-    <!-- ... (rest of the default content) ... -->
-  </div>
-
-  <!-- Advertisement section -->
-  <div class="ads">
-    <!-- Your ad code goes here -->
-    <img src="path/to/your/ad-image.jpg" alt="Advertisement">
-  </div>
+    <div class="content">
+      <img src="path/to/your/ad-image.jpg" alt="Advertisement">
+      </div>
+      <div class="content">
+       <h1> <img src = "https://dynamic.brandcrowd.com/asset/logo/67e3e97a-e5bd-4c71-8c6b-53c3d8cdf403/logo-search-grid-1x?logoTemplateVersion=1&v=637883034631570000&text=system+design">Welcome to the System Design Tutorial</h1>
+        <hr>
+        <br>
+        <p>
+          System design is a critical aspect of building robust and scalable software applications. It involves designing the architecture, components, and interactions of a system to meet specific requirements and ensure efficient performance.
+        </p>
+        <p>
+          This website provides comprehensive tutorials and resources for learning system design principles, best practices, and methodologies. Whether you're a beginner or an experienced developer, you'll find valuable insights and practical examples to enhance your system design skills.
+        </p>
+        <p>
+          Explore the different topics in the sidebar to learn about various aspects of system design, including architecture patterns, scalability, performance optimization, and more. Each topic provides detailed explanations, case studies, and practical tips to help you master the art of system design.
+        </p>
+        <p>
+          We're dedicated to providing you with high-quality content and ensuring an excellent learning experience. If you have any questions or suggestions, feel free to reach out to us via the contact form or the provided contact information.
+        </p>
+        <p>
+          Start your journey to becoming a proficient system designer today!
+        </p>
+      </div>
+      <div class="ads">
+        <!-- Your ad code goes here -->
+        <img src="path/to/your/ad-image.jpg" alt="Advertisement">
+    </div>
   </ng-template>
+  <style>
+     .content img{
+    width:100px;
+    top:50px;
+    left: 95px;
+  }
+  .ads img {
+    width: 100%;
+    height: auto;
+  }
+  .ads{
+    flex: 0 0 200px;
+  }
+  </style>
 </ion-content>
