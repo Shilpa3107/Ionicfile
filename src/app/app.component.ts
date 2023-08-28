@@ -49,6 +49,10 @@ export class AppComponent {
           // Correctly use backticks for template literals
           this.fetchData();
         }
+        else {
+          this.selectedMenu = ''; // Clear selectedMenu if no matching lastword is found
+          this.items = []; // Clear items to show an empty list in the sidebar
+        }
       }
     });
   }
