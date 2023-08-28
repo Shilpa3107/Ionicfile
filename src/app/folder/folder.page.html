@@ -13,9 +13,413 @@
       <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  
+  <!-- Display subtopic content if available -->
+  <div class="main-content" *ngIf="subtopicContent !== 'noSubtopicContent'; else noSubtopicContent">
+    <section>
+      <h1 style="text-align: center;">{{ part.replaceAll("-"," ")}}</h1>
+      <hr>
+      <br>
+      <div>
+      <p [innerHTML]="subtopicContent"></p>
+      </div>
+    </section>
   </div>
+
+  <!-- Display default content if subtopic content is not available -->
+  <ng-template #noSubtopicContent>
+    <ng-container *ngIf="folder === 'home' ">
+      <section class="home">
+    <div class="content">
+      <img src="path/to/your/ad-image.jpg" alt="Advertisement">
+      </div>
+      <div class="content">
+       <h1> <img src = "https://dynamic.brandcrowd.com/asset/logo/67e3e97a-e5bd-4c71-8c6b-53c3d8cdf403/logo-search-grid-1x?logoTemplateVersion=1&v=637883034631570000&text=system+design">Welcome to the System Design Tutorial</h1>
+        <hr>
+        <br>
+        <p>
+          System design is a critical aspect of building robust and scalable software applications. It involves designing the architecture, components, and interactions of a system to meet specific requirements and ensure efficient performance.
+        </p>
+        <p>
+          This website provides comprehensive tutorials and resources for learning system design principles, best practices, and methodologies. Whether you're a beginner or an experienced developer, you'll find valuable insights and practical examples to enhance your system design skills.
+        </p>
+        <p>
+          Explore the different topics in the sidebar to learn about various aspects of system design, including architecture patterns, scalability, performance optimization, and more. Each topic provides detailed explanations, case studies, and practical tips to help you master the art of system design.
+        </p>
+        <p>
+          We're dedicated to providing you with high-quality content and ensuring an excellent learning experience. If you have any questions or suggestions, feel free to reach out to us via the contact form or the provided contact information.
+        </p>
+        <p>
+          Start your journey to becoming a proficient system designer today!
+        </p>
+      </div>
+      <div class="ads">
+        <!-- Your ad code goes here -->
+        <img src="path/to/your/ad-image.jpg" alt="Advertisement">
+    </div>
+  </section>
+    </ng-container>
+    <ng-container *ngIf ="folder === 'methodology'">
+      <section class="methodology">
+      <h1>Methodology</h1>
+      <hr>
+      <br>
+      <div>
+      <p>System Design is the process of designing the architecture, components, and interfaces for a system so that it meets the end-user requirements.System Design for tech interviews is something that can’t be ignored! Almost every IT giant whether it be Facebook, Amazon, Google, Apple or any other ask various questions based on System Design concepts such as scalability, load-balancing, caching, etc. in the interview.</p>
+      <br>
+      <p>System design refers to the process of defining the architecture, modules, interfaces, data for a system to satisfy specified requirements. It is a multi-disciplinary field that involves trade-off analysis, balancing conflicting requirements, and making decisions about design choices that will impact the overall system.The process involves defining the system’s architecture, components, modules, and interfaces, and identifying the technologies and tools that will be used to implement the system.</p>
+      <br>
+      <p>Here are some steps to get started with system design:</p>
+      <ol>
+          <li>Understand the requirements: Before you begin designing the system, you need to understand the requirements. This involves talking to stakeholders and users, reviewing existing documentation, and analyzing the business processes that the system will support.</li>
+          <li>Define the system architecture: Once you have a clear understanding of the requirements, you can begin defining the system architecture. This involves identifying the major components of the system and the interfaces between them.</li>
+          <li>Choose the technology stack: Based on the requirements and the system architecture, you can select the technology stack. This includes choosing the programming language, database, frameworks, and libraries that will be used to implement the system.</li>
+          <li>Design the modules: Next, you need to design the modules that will make up the system. This involves defining the functions that each module will perform and the data that it will manipulate.</li>
+          <li>Plan for scalability: As you design the system, you need to consider how it will scale. This involves identifying potential bottlenecks and designing the system to handle increased loads.</li>
+          <li>Consider security and privacy: Security and privacy should be a key consideration in system design. This involves identifying potential security threats and designing the system to mitigate them.</li>
+          <li>Test and validate: Once the system design is complete, you need to test and validate it. This involves creating test cases and scenarios that simulate real-world usage and verifying that the system meets the requirements.</li>
+      </ol>
+      <br>
+      <p>Overall, system design is a complex process that requires careful planning and attention to detail. By following these steps, you can create a system design that meets the needs of your users and your business.</p>
+      <br>
+      <p>Approaching a Design Problem</p>
+      <br>
+      <ul>
+          <li>Breaking Down the Problem: When you are given a Design Problem start breaking it down to small components. These components can be Services or Features which you need to implement in the System. Initially, a System given to be designed can have a large number of features and you are not expected to design everything if it's an Interview. Ask your interviewer about the Features you are planning to put in your system. Is there anything else you should be putting there? Any Feature? Any Service? … Ask!</li>
+          <li>Communicating your Ideas : Communicate well with the Interviewer. While designing the system keep him in the loop. Discuss your process out loud. Try to demonstrate your design clearly on the whiteboard with flowcharts and diagrams. Describe your ideas to your interviewer, how you have planned to tackle the problem of scalability, how you will be designing your database and many others.</li>                                                                           
+          <li>Assumptions that make sense : Make some reasonable assumptions while you are designing the System. Suppose you have to assume the number of requests the system will be processing per day, the number of database calls made in a month, or the efficiency rate of your Caching System. These are some of the numbers you need to assume while designing. Try to keep these numbers as reasonable as possible. Back up your assumption with some solid facts and figures.</li>
+          <li>Now we know how to approach a design problem. But in order to succeed in the Interview or to successfully build a scalable system, we need to ensure that our system is reliable, available, scalable, and maintainable. So we should have knowledge of what these terms are and how they impact our system in the long run.</li>
+      </ul>
+  <img src = "https://media.geeksforgeeks.org/wp-content/uploads/20200523130651/Screenshot-from-2020-05-23-12-45-27.png" alt = "Relations">
+  
+  <p>
+      <ul>
+          <li>Reliability in System Design -
+  A system is Reliable when it can meet the end-user requirement. When you are designing a system you should have planned to implement a set of features and services in your system. If your system can serve all those features without wearing out then your System can be considered to be Reliable. A Fault Tolerant system can be one that can continue to be functioning reliably even in the presence of faults. Faults are the errors that arise in a particular component of the system. An occurrence of fault doesn’t guarantee Failure of the System. Failure is the state when the system is not able to perform as expected. It is no longer able to provide certain services to the end-users.
+  
+  Availability in System Design -
+  Availability is a characteristic of a System which aims to ensure an agreed level of Operational Performance, also known as uptime. It is essential for a system to ensure high availability in order to serve the user’s requests. The extent of Availability varies from system to system. Suppose you are designing a Social Media Application then high availability is not much of a need. A delay of a few seconds can be tolerated. Getting to view the post of your favorite celebrity on Instagram with a delay of 5 to 10 seconds will not be much of an issue. But if you are designing a system for hospitals, Data Centers, or Banking, then you should ensure that your system is highly available. Because a delay in the service can lead to a huge loss. There are various principles you should follow in order to ensure the availability of your system :
+  <ul>Your System should not have a Single Point of Failure. Basically, your system should not be dependent on a single service in order to process all of its requests. Because when that service fails then your entire system can be jeopardized and end up becoming unavailable.
+  Detecting the Failure and resolving it at that point.
+  </ul></li>
+  
+  <li>Scalability in System Design -
+  Scalability refers to the ability of the System to cope up with the increasing load. While designing the system you should keep in mind the load experienced by it. It’s said that if you have to design a system for load X then you should plan to design it for 10X and Test it for 100X. There can be a situation where your system can experience an increasing load. Suppose you are designing an E-commerce application then you can expect a spike in the load during a Flash Sale or when a new Product is Launched for sale. In that case, your system should be smart enough to handle the increasing load efficiently and that makes it Scalable. In order to ensure scalability you should be able to compute the load that your system will experience. There are various factors that describe the Load on the System:
+  <ul>
+  <li>Number of requests coming to your system for getting processed per day</li>
+  <li>Number of Database calls made from your system</li>
+  <li>Amount of Cache Hit or Miss requests to your system</li>
+  <li>Users currently active on your system</li>
+  </ul>
+  Here are some important points to consider when designing a software system:
+  <ul>
+  <li>Scalability: The system should be designed to handle increased loads and be able to scale horizontally or vertically as needed.</li>
+  <li>Performance: The system should be designed to perform efficiently and effectively, with minimal latency and response time.</li>
+  <li>Reliability: The system should be reliable and available, with minimal downtime or system failures.</li>
+  <li>Security: The system should be designed with security in mind, including measures to prevent unauthorized access and protect sensitive data.</li>
+  <li>Maintainability: The system should be designed to be easy to maintain and update, with clear documentation and well-organized code.</li>
+  <li>Interoperability: The system should be designed to work seamlessly with other systems and components, with clear and well-defined interfaces.</li>
+  <li>Usability: The system should be designed to be user-friendly and intuitive, with a clear and consistent user interface.</li>
+  <li>Cost-effectiveness: The system should be designed to be cost-effective, with a focus on minimizing development and operational costs while still meeting the requirements.</li>
+  </ul>
+  </li>
+  </ul>
+  </div>
+  </section>
+    </ng-container>
+
+    <ng-container *ngIf ="folder === 'casestudies'">
+      <section class="casestudies">
+      <h1>Case Studies</h1>
+    <hr>
+    <br>
+    <div>
+            <p>A case study in system design is an in-depth analysis of a real-world system. It can be used to learn about the system's design, implementation, and operation. Case studies can be used to identify best practices, identify potential problems, and learn from the experiences of others.</p>
+    <p>
+        <h3>Requirements</h3>
+        Requirements: This is an important step as you need to narrow down to a specific goal so you don't over complicate things. Clarifying your goal helps focus on the main features and remove any ambiguities and identify potential bottlenecks. We can divide our requirements into two parts:
+        <ul>
+        <li>Functional Requirements
+Functional requirements are requirements the system has to deliver. These are the main goals of the system. Functional requirements include things like business rules, authentication, administrative functions, authorization levels, etc.
+</li>
+<li>Non-Functional Requirements
+Non-functional requirements restrict the system design through different qualities. They need to be analyzed, and if they are not fulfilled, they can harm the business plan or goals. Non-functional requirements include performance, security, reliability, scalability, maintainability, availability, etc. All these different parameters help you analyze and determine if your system is designed properly.
+</li>
+</ul>
+Let's take Twitter, some functional requirements can include:
+<ul>
+<li>Users should be able to post new tweets</li>
+<li>Users should be able to follow other user</li>
+<li>Users should be able to mark tweets as favorite</li>
+</ul>
+
+The non-functional requirements can include:
+<ul>
+<li>High availability</li>
+<li>Consistency</li>
+<li>A latency of around 200ms for timeline generation</li>
+</ul>
+These are some basic requirements that can further be extended to include searching, replying to tweets, tagging users, notifications, trending topics, etc.
+
+<p>
+    <h3>Detailed Design</h3>
+    <p>
+        Now that you have identified your core components, it's time to dig deeper into them. You want to start by analyzing the different approaches to solving a given problem and the pros/cons of each potential solution.
+
+It's also important to do tradeoff analysis at this stage. Considerations like these are commonly addressed during this step.
+    </p>
+    <ul>
+        <li>How much data do we need to cache to speed up the response time?</li>
+        <li>Where should we need to use load-balancer?</li>
+        <li>Do w need to partition data to distribute to multiple databases?</li>
+    </ul>
+
+<p>
+    <h3>Deployment</h3>
+Deploying a system design typically involves a series of steps to make the designed system operational and accessible to its intended users. The exact deployment process can vary depending on the nature of the system and the technologies involved, but here is a general overview of the steps involved in deploying a system design:
+<ul>
+<li> Infrastructure Provisioning: Determine the necessary infrastructure to support the system design, such as servers, networking equipment, storage, and any other required hardware or cloud resources. Provision or acquire the infrastructure as needed.</li>
+<li> Software Installation and Configuration: Install and configure the required software components of the system design on the infrastructure. This may involve setting up operating systems, databases, web servers, application servers, and other software dependencies.</li>
+<li>  Integration and Testing: Integrate different components of the system design and conduct thorough testing to ensure that the system functions as expected. This includes testing individual components, interfaces between components, and overall system behavior. It is crucial to identify and address any issues or bugs during this phase.</li>
+<li>  Data Migration and Setup: If the system design involves existing data, migrate the data to the newly deployed system. This may involve data transformation, mapping, and loading procedures to ensure that the data is properly formatted and accessible to the system.</li>
+<li>  Security and Access Control: Implement security measures to protect the system and its data. This may include setting up user authentication, access controls, encryption, firewalls, and other security mechanisms based on the system's requirements and industry best practices.</li>
+<li>  Performance Optimization: Fine-tune the system for optimal performance, such as configuring caching mechanisms, optimizing database queries, or scaling the system to handle anticipated user loads.</li>
+<li>  Rollout and Monitoring: Deploy the system design to the production environment and gradually make it available to users. Monitor the system closely to identify any performance or stability issues and address them promptly.</li>
+<li>  Documentation and Training: Create comprehensive documentation that describes the system's architecture, components, configuration, and maintenance procedures. Provide training to relevant personnel who will be responsible for operating and maintaining the system.</li>
+<li>  Continuous Improvement: Monitor and collect feedback from users to identify areas for improvement. Plan and implement iterative updates and enhancements to the system design based on user needs and changing requirements.</li>
+</ul>
+It's important to note that the deployment process may vary depending on the specific technology stack, development methodologies, and organizational practices used in a particular project or company.
+
+<p>
+    <h3>Maintenance</h3>
+Maintenance of a system design is an essential aspect of ensuring its continued functionality, reliability, and security. Maintenance involves activities aimed at monitoring, supporting, and enhancing the system throughout its lifecycle. Here are some key considerations for system design maintenance:
+<ul>
+<li> Monitoring and Incident Management: Implement monitoring tools and processes to continuously monitor the system's performance, availability, and security. Set up alerts and notifications to promptly address any issues or incidents that may arise. Establish incident management procedures to handle and resolve problems effectively.</li>
+<li>  Bug Fixes and Updates: As users interact with the system, they may encounter bugs or issues that need to be addressed. Regularly analyze user feedback, conduct testing, and release bug fixes and updates to improve system functionality, stability, and user experience.</li>
+<li> Security Updates and Patches: Stay vigilant about emerging security threats and vulnerabilities. Keep the system up to date with security updates, patches, and fixes to mitigate potential risks. Regularly review and update security configurations and access controls as necessary.</li>
+<li>  Performance Optimization: Continuously monitor and optimize system performance. Analyze performance metrics, identify bottlenecks, and make necessary adjustments to improve the system's speed, efficiency, and scalability. This may involve tuning database queries, optimizing algorithms, or scaling resources as needed.</li>
+<li>  Data Management: Ensure the integrity, availability, and accessibility of the system's data. Implement backup and recovery mechanisms to protect against data loss. Regularly review data storage requirements, archive or purge outdated data, and optimize database performance.</li>
+<li>  System Upgrades and Enhancements: As technology advances and user requirements evolve, consider system upgrades and enhancements. Evaluate new features, frameworks, or technologies that could benefit the system and plan for their integration. Perform thorough testing and rollout upgrades carefully to minimize disruptions.</li>
+<li>  Documentation and Knowledge Base: Maintain up-to-date documentation that captures the system's architecture, configuration, and troubleshooting procedures. Create a knowledge base or a centralized repository of information to assist support teams and facilitate future maintenance tasks.</li>
+<li>  User Support and Training: Provide ongoing user support, addressing inquiries, troubleshooting issues, and assisting with system-related questions. Offer training sessions or resources to keep users informed about new features or changes in the system.</li>
+<li> Compliance and Regulatory Updates: Stay informed about relevant industry regulations, data protection laws, and compliance requirements. Regularly review and update the system's configuration and processes to ensure compliance with applicable standards and regulations.</li>
+<li>  Continuous Improvement: Encourage feedback from users and stakeholders to identify areas for improvement. Use analytics and user insights to understand usage patterns, identify pain points, and prioritize enhancements that align with user needs and business objectives.</li>
+</ul>
+Maintenance activities are typically carried out by a dedicated team or individuals responsible for system operations and support. The frequency and intensity of maintenance tasks will vary depending on the complexity of the system, the user base, and the criticality of the system's function to the organization.
+</div>
+</section>
+    </ng-container>
+    <ng-container *ngIf="folder === 'practices'">
+      <section class="practices">
+      <h1>Best-Practices</h1>
+    <hr>
+    <br>
+    <div>
+    <p>When it comes to system design, several best practices can help ensure the creation of robust, scalable, and maintainable systems. Here are some key best practices to consider:
+        <ul>
+<li>Modularity and Separation of Concerns: Divide the system into modular components that have well-defined responsibilities. Each component should focus on a specific task or concern, making the system easier to understand, develop, test, and maintain. Apply principles like the Single Responsibility Principle (SRP) and the Separation of Concerns (SoC) to achieve modular designs.</li>
+<li>Scalability and Performance: Design the system with scalability in mind to handle increased loads and future growth. Consider horizontal scalability by distributing the workload across multiple servers or services. Optimize performance by employing efficient algorithms, minimizing resource consumption, and caching frequently accessed data.</li>
+<li>Reliability and Fault Tolerance: Design the system to be resilient to failures and ensure high availability. Use techniques such as redundancy, replication, and fault tolerance mechanisms to minimize the impact of individual component failures. Implement error handling and recovery strategies to gracefully handle errors and maintain system functionality.</li>
+<li>Security: Incorporate security measures into the system design from the start. Follow security best practices to protect against common vulnerabilities, such as authentication and authorization mechanisms, input validation, encryption, and secure communication protocols. Regularly update and patch system dependencies to address security vulnerabilities.</li>
+<li>Maintainability: Design the system to be easily maintainable over its lifespan. Write clean, readable, and well-documented code. Apply software design principles such as loose coupling, high cohesion, and encapsulation. Use design patterns and architectural patterns to promote maintainability and extensibility.</li>                              
+<li>Testability: Design the system with testability in mind to facilitate the development of comprehensive test suites. Use techniques like unit testing, integration testing, and automated testing to validate the system's behavior and catch issues early in the development cycle. Employ tools and frameworks that support effective testing.</li>
+<li>Flexibility and Extensibility: Anticipate future changes and design the system to be flexible and extensible. Use modular architectures and well-defined interfaces to allow for the addition or modification of components without affecting the entire system. Follow open-closed principles, favoring extension over modification.</li>
+<li>Performance Monitoring and Logging: Incorporate robust monitoring and logging capabilities into the system. Implement tools and mechanisms to collect performance metrics, track system behavior, and capture error logs. This information can aid in identifying bottlenecks, diagnosing issues, and making data-driven improvements.</li>
+<li>Use Established Patterns and Frameworks: Leverage established design patterns and frameworks that address common challenges in system design. These patterns and frameworks often come with a wealth of community knowledge, proven solutions, and resources that can accelerate development and reduce risks.</li>
+<li>Iterative Design and Continuous Improvement: Embrace an iterative design process that allows for feedback, refinement, and continuous improvement. Solicit feedback from users and stakeholders, learn from usage patterns, and iterate on the system design based on insights gained. Continuously assess the system's performance, security, and user satisfaction to identify areas for enhancement.</li>
+</ul>
+
+
+</div>
+</section>
+    </ng-container>
+
+    <ng-container *ngIf ="folder === 'tool'">
+      <section class="tool">
+      <h1>Tools & Resources</h1>
+      <hr>
+      <br>
+      <div>
+      <p>There are various tools and resources available to support system design. Here are some tools and resources for system design:
+      <ul>
+         <li><h3>Software:</h3> There are any differeent software tools that can be used for system design. Some popular tools include:
+             <ul>
+                 <br>
+                 <li>
+                     <h5>C4 Model:</h5> A popular modeling tool for system design. It is a visual modeling language that helps you to capture the different components of a system and their relationships.
+                     <br>
+                     <a href = "https://caroli.org/en/c4-model/" >C4 Model</a>
+                     <br>
+                      <img src = "https://caroli.org/wp-content/uploads/2020/06/c4-model.png" width = 100px height = 100px alt = "C4 model">
+                 </li>
+                 <br>
+                 <li><h5>Draw.io:</h5> A free online diagramming tool that can be used to create system diagrams.
+                     <br>
+                     <img src = "https://lh3.googleusercontent.com/bip/AKnpU_xVm5vc6Xzw2jG9kVbGa-02z35bXFtQ79Xgy9Fa5Li_nBxgALt_eIyi0eXt4OCIIHNr-bEDEaRaMVqHyNSCfN7MNQlfFgDjaiZOFRG2NqBOTsCeFs-znKiqMZbH-HpSg2aQEKCcK9kVATdEzepDvQOeNmhTm6U=w250-h200-p" alt = "draw.io">
+                 </li>
+                 <br>
+                 <li><h5>Lucidchart:</h5> A paid diagramming tool that offers more features than Draw.io.
+                     <br>
+                     <a href = "https://www.lucidchart.com/pages/examples/flowchart_software">Lucidchart</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+             <h3>Books:</h3> There are many books that can help you learn about system design. Some popular books include:
+             <ul>
+                 <li>
+                     <br>
+                     <h5>Designing Data-Intensive Applications:</h5> This book by Martin Kleppmann covers the design of large-scale data-intensive applications.
+                     <br>
+                     <img src = "https://lh3.googleusercontent.com/bip/AKnpU_xtqekU3Bvg1WeJzhWn1ph_LLfHkQwnQk3vIgzL3F5tLNiIoa45ohTk-jsCjl46tr8Q4e6HNbB3ZW_bT2w1XaW2SV20GdYQH3aZfHbvOQH8TJbTRUYs_w=w250-h200-p" alt = "designing_data_intensive_applications">
+                 </li>
+                 <br>
+                 <li><h5>The Pragmatic Programmer:</h5> This classic book by Andrew Hunt and David Thomas covers many topics related to software development, including system design.
+                     <br>
+                     <img src = "https://lh3.googleusercontent.com/bip/AKnpU_wgD-jzfeZMmySkJBJnuwCdYiERh_FYp99oOHK881y931J53kvojUD4k4GqoLra17e80x1jlHuh5_np6l8-0SVvWjIltFraTv_qfqtBnwF0WVhZ7urf4Q=w250-h200-p" alt = the_pragmatic_programmer>
+                 </li>
+                 <br>
+                 <li><h5>System Design Interview Handbook:</h5> This book by John Sonmez covers the system design interview process. It includes a lot of practice problems and solutions.
+                     <br>
+                     <img src="https://lh3.googleusercontent.com/bip/AKnpU_y2b2xPVauVcfOFRhL_Rm9iIWuC52ARY4su2R0gEJde-LNgXwnNVGXQLdt1yKg_uokSsnOSKGP9B4CV-zWwvFrS_KcSIaLY4_o0M7P82vBbCGXX2Qs283gjT2L_0tNyqPqZ6mYPblmCpl7m_WQ=w250-h200-p" alt=" system_design_review">
+                </li>
+               </ul>
+           </li>
+         <li><h3>Online resources:</h3> There are many online resources that can help you learn about system design. Some popular resources include:
+             <ul>
+                 <br>
+                 <li><h5>System Design Primer:</h5> This website by Martin Kleppmann provides a comprehensive overview of system design.
+                     <br>
+                     <a href = "https://levelup.gitconnected.com/system-design-interview-survival-guide-2023-preparation-strategies-and-practical-tips-ba9314e6b9e3">System Design Primer</a>
+                     <br>
+                     <img src = "https://lh3.googleusercontent.com/bip/AKnpU_wOzYbe9-HAcOLdnjS07OpVlus8LorDlcLaNQQs7OkTgyOpCfLOGOgdPoWyt72l4nn3Xbj3mpebhGjtqadgjmJavXkYLNCrqrphBLDmY4anQ_2GZWBkDZDkYNRvoB23yFDNZrtiYqxJ=w250-h200-p" alt="system_design_interview_guide">
+                 </li>
+                 <br>
+                 <li><h5>Grokking the System Design Interview:</h5> This website by Educative.io provides a course on system design. It includes a lot of video lectures and practice problems.
+                     <br>
+                     <a href = "https://levelup.gitconnected.com/system-design-interview-survival-guide-2023-preparation-strategies-and-practical-tips-ba9314e6b9e3">System Design Interview</a>
+                     <br>
+                     <img src = "https://lh3.googleusercontent.com/bip/AKnpU_wOzYbe9-HAcOLdnjS07OpVlus8LorDlcLaNQQs7OkTgyOpCfLOGOgdPoWyt72l4nn3Xbj3mpebhGjtqadgjmJavXkYLNCrqrphBLDmY4anQ_2GZWBkDZDkYNRvoB23yFDNZrtiYqxJ=w250-h200-p" alt = "system_design_interview">
+                 </li>
+                 <br>
+                 <li><h5>LeetCode:</h5> This website provides a large number of practice problems for system design.
+                     <br>
+                     <a href = "https://leetcode.com/discuss/general-discussion/1124385/leetcode-complete-beginners-guide-i">Leetcode</a>
+                 </li>
+               </ul>
+        </li>
+                     
+       </ul>
+      </div>
+      </section>
+    </ng-container>
+    <ng-container *ngIf="folder === 'blog'">
+      <section class="blog">
+      <h1>Blogs</h1>
+      <hr>
+      <br>
+      <div>
+      <ul>
+          <li><h3>The Pragmatic Engineer:</h3>This blog by Michael Feathers covers many topics related to software engineering, including system design.
+              <br>
+              <a href="https://www.pragmaticengineer.com/" >pragmaticengineer</a>  
+          </li>
+          <br>
+          <li><h3>Level Up Engineering: </h3>This blog by Martin Fowler covers many topics related to software architecture, including system design.
+            <br>
+              <a href="https://www.springboard.com/blog/data-science/data-engineering-projects/">springboard</a>
+          </li>
+          <br>
+          <li>
+              <h3>Engineering.SE:</h3>This website is a Q&A forum for engineers. There are many questions and answers related to system design.
+              <br>
+              <a href="https://fractory.com/best-websites-for-mechanical-engineers/">Fractory</a>
+          </li>
+          <br>
+          <li>
+              <h3>Software Engineering Daily: </h3>This podcast interviews software engineers about their work. There are many episodes that discuss system design.
+              <br>
+              <a href="https://www.heroku.com/podcasts/software-engineering-daily">Heroku</a>
+          </li>
+          <br>
+          <li>
+              <h3>System Design 101:</h3> This blog by Martin Kleppmann provides a comprehensive overview of system design.
+              <br>
+              <a href="https://towardsdatascience.com/system-design-101-b8f15162ef7c">TowardsDataScience</a>
+          </li>
+      </ul>
+      </div>
+      </section>
+    </ng-container>
+    <ng-container *ngIf="folder ==='about'">
+      <section class="about">
+      <h1>About</h1>
+    <hr>
+    <br>
+    <div>
+    <p>Welcome to the System Design Tutorial website! We are dedicated to providing you with comprehensive resources and tutorials to master the art of system design.</p>
+    <p>Our mission is to empower developers and architects with the knowledge and skills to design scalable, robust, and efficient systems. Whether you're a beginner or an experienced professional, our tutorials will guide you through the principles, patterns, and best practices of system design.</p>
+    <p>Explore our tutorials, case studies, and practical examples to learn how to design systems that can handle millions of users, ensure high availability, and deliver exceptional performance. Stay updated with the latest trends and technologies in system design to stay ahead in your career.</p>
+  </div>
+  </section>
+    </ng-container>
+    <ng-container *ngIf="folder === 'contact'">
+      <section class="contact">
+      <h1>Contact Us</h1>
+        <hr>
+    <br><div>
+        <p>We would love to hear from you! If you have any questions, feedback, or inquiries, please don't hesitate to get in touch with us.</p>
+        <form>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </form>
+        </div>
+        </section>
+    </ng-container>
+  </ng-template>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Josefin+Sans:wght@200;300&family=Lobster&family=Pacifico&family=Roboto:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@500&family=Dosis&family=Josefin+Sans:wght@200;300&family=Lobster&family=Pacifico&family=Roboto:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+h1{
+   text-align: center;
+   font-family: 'Poppins', sans-serif;
+   margin-top: 4px;
+   font-weight: bold;
+}
+div{
+   font-family: 'Dosis', sans-serif;
+   font-weight:bold;
+}
+section{
+   background-image: url("https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=996&t=st=1687872269~exp=1687872869~hmac=2d9aedbbeea8ea6df0118f9a2ae7d464c1a8c80ec6ec426c198f1e0929ac352d");
+   font-weight: bold;
+   margin-left:20px;
+ }
+     .content img{
+    width:100px;
+    top:50px;
+    left: 95px;
+  }
+  .ads img {
+    width: 100%;
+    height: auto;
+  }
+  .ads{
+    flex: 0 0 200px;
+  }
+  </style>
 </ion-content>
