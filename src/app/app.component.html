@@ -14,7 +14,7 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-        <ion-content *ngIf="items.length > 0">
+        <!-- <ion-content *ngIf="items.length > 0"> -->
         <ion-list id="labels-list" >
           <ion-list-header style="font-weight: 600; color: rgb(30, 5, 5)">Sidebar</ion-list-header>
           <ng-container *ngFor="let label of items" >
@@ -51,7 +51,7 @@
             </style>
           </ng-container>
         </ion-list>
-        </ion-content>
+        <!-- </ion-content> -->
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content" >
