@@ -2,15 +2,17 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
+        <div>
         <ion-list id="inbox-list">
+          
           <ion-list-header>System Design Tutorial</ion-list-header>
          <br>
           <!-- <ion-note>hi@ionicframework.com</ion-note> -->
-
+            
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+              <ion-label class="titlename"><h2>{{ p.title }}</h2></ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
@@ -19,7 +21,7 @@
           <ion-list-header style="font-weight: 600; color: rgb(30, 5, 5)">Sidebar</ion-list-header>
           <ng-container *ngFor="let label of items" >
             <ion-item detail="false" lines="none">
-              <ion-label (click)="toggleSubtopic(label)">
+              <ion-label (click)="toggleSubtopic(label)" class="topicname">
                 <ion-icon
                   [name]="isSubtopicExpanded(label) ? 'arrow-down-circle' : 'arrow-forward-circle'"
                   class="toggle-icon"
@@ -33,7 +35,7 @@
             <ion-list *ngIf="isSubtopicExpanded(label)">
               <ion-item *ngFor="let subtopic of label.subtopics" lines="none"   routerDirection="root" [routerLink] ="[selectedMenu, label.url + '_' + subtopic.url]"  detail = "false" routerLinkActive="selected" 
               a (click)="doSomeLogic( label.url,subtopic.url, selectedMenu)">
-                <ion-label>{{ subtopic.name }}</ion-label>
+                <ion-label class="subtopicname">{{ subtopic.name }}</ion-label>
               </ion-item>
             </ion-list>
             <style>
@@ -52,7 +54,23 @@
           </ng-container>
         </ion-list>
         <!-- </ion-content> -->
+        </div>
       </ion-content>
+      <style>
+           @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Josefin+Sans:wght@200;300&family=Lobster&family=Pacifico&family=Roboto:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@500&family=Dosis&family=Josefin+Sans:wght@200;300&family=Lobster&family=Pacifico&family=Roboto:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+div{
+   font-family: 'Dosis', sans-serif;
+   font-weight:bold;
+}
+.topicname,.subtopicname,.titlename{
+  font-family: 'Dosis', sans-serif;
+   font-weight:900;
+   color:black;
+}
+        </style>
     </ion-menu>
     <ion-router-outlet id="main-content" >
      <!-- <app-content [title] ="selectedtitle"></app-content> -->
