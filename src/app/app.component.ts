@@ -67,17 +67,17 @@ export class AppComponent {
 
   }
   doSomeLogic(label: string, sub: string, sm: string) {
-    console.log("Function called");
-    console.log(sm)
-    console.log(label);
-    console.log(sub)
+    // console.log("Function called");
+    // console.log(sm)
+    // console.log(label);
+    // console.log(sub)
     // const encodedsm = encodeURIComponent(sm);
     const encodedLabel = encodeURIComponent(label);
     const encodedSub = encodeURIComponent(sub);
     const url = `${sm}/${encodedLabel}_${encodedSub}`;
-    console.log(url);
+    // console.log(url);
     this.router.navigateByUrl(url);
-    console.log("Function call ended");
+    // console.log("Function call ended");
   }
   
 
