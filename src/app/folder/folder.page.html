@@ -15,13 +15,13 @@
   </ion-header>
   
   <!-- Display subtopic content if available -->
-  <div class="main-content" *ngIf="subtopicContent !== 'noSubtopicContent'; else noSubtopicContent">
+  <div class="main-content" *ngIf="valuecontent !== 'noSubtopicContent'; else noSubtopicContent">
     <section>
       <h1 style="text-align: center;">{{ part.replaceAll("-"," ")}}</h1>
       <hr>
       <br>
       <div>
-      <p [innerHTML]="subtopicContent"></p>
+      <p [innerHTML]="valuecontent"></p>
       </div>
     </section>
   </div>

@@ -11,6 +11,7 @@ export class FolderPage implements OnInit {
   subtopic: string | null = null;
   part: string = '';
   public subtopicContent: string = '';
+  public valuecontent: string="";
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
@@ -23,11 +24,13 @@ export class FolderPage implements OnInit {
     if (this.subtopic) {
       // Split the subtopic parameter using underscores
       const subtopicParts = this.subtopic.split('_');
-      
+      console.log("Subtopicparts : ",subtopicParts);
       if (subtopicParts.length === 2) {
         const [topicUrl, subtopicUrl] = subtopicParts;
         this.part = subtopicUrl;
-        
+        console.log("Topic Url: ",topicUrl);
+        console.log("Subtopic Url: ",subtopicUrl);
+        console.log("part: ",this.part);
         // Construct the URL for the JSON data
         const url = 'assets/' + this.folder + '.json';
         console.log("URL: ", url);
@@ -37,32 +40,37 @@ export class FolderPage implements OnInit {
           .then((response) => response.json())
           .then((data: any) => {
             const topic = data.topics.find((t: any) => t.url === topicUrl);
-  
+            console.log("Topic : ",topic);
+
             if (topic) {
               const subtopicObj = topic.subtopics.find((subt: any) => subt.url === subtopicUrl);
-  
+               console.log("Subtopic :",subtopicObj);
               if (subtopicObj) {
                 this.subtopicContent = subtopicObj.content;
-      
+                 console.log("SUbtopiccontent : ",this.subtopicContent)
+                 console.log("SubtopicObj content : ",subtopicObj.content)
+                 const content = subtopicObj.content[0].value;
+                //  console.log("Content : ",content);
+                 this.valuecontent = content;
               } else {
-                this.subtopicContent = 'Subtopic not found.';
+                this.valuecontent = 'Subtopic not found.';
       
               }
             } else {
-              this.subtopicContent = 'Topic not found.';
+              this.valuecontent = 'Topic not found.';
     
             }
           })
           .catch((error) => {
             console.error('Error fetching data:', error);
-            this.subtopicContent = 'Error fetching data. Please try again later.';
+            this.valuecontent = 'Error fetching data. Please try again later.';
   
           });
       } else {
-        this.subtopicContent = 'Invalid subtopic format.';
+        this.valuecontent = 'Invalid subtopic format.';
       }
     } else {
-      this.subtopicContent = 'noSubtopicContent';
+      this.valuecontent = 'noSubtopicContent';
     }
   }
 }
