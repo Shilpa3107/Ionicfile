@@ -10,15 +10,18 @@ export class FolderPage implements OnInit {
   public folder!: string;
   subtopic: string | null = null;
   part: string = '';
-  public subtopicContent: string = '';
+  public subtopicContent: any[] = [];
   public valuecontent: string="";
-
+   contentItems: any[] = [];
+   num: number=0;
+   
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
     this.subtopic = this.activatedRoute.snapshot.paramMap.get('topic');
     console.log('Folder: ', this.folder);
+    console.log("Num : ",this.num)
     console.log('Subtopic: ', this.subtopic);
 
     if (this.subtopic) {
@@ -44,33 +47,30 @@ export class FolderPage implements OnInit {
 
             if (topic) {
               const subtopicObj = topic.subtopics.find((subt: any) => subt.url === subtopicUrl);
-               console.log("Subtopic :",subtopicObj);
+              //  console.log("Subtopic :",subtopicObj);
               if (subtopicObj) {
                 this.subtopicContent = subtopicObj.content;
-                 console.log("SUbtopiccontent : ",this.subtopicContent)
-                 console.log("SubtopicObj content : ",subtopicObj.content)
-                 const content = subtopicObj.content[0].value;
-                //  console.log("Content : ",content);
-                 this.valuecontent = content;
+                this.num = this.subtopicContent.length;
+                console.log("Length: ",this.num)
+                //  console.log("SUbtopiccontent : ",this.subtopicContent)
+                //  console.log("SubtopicObj content : ",subtopicObj.content)
+                //  const content = subtopicObj.content.value;
+                //  this.contentItems = subtopicObj.content;
+                //  console.log("Content : ",this.contentItems);
+                //  this.valuecontent = content;
               } else {
-                this.valuecontent = 'Subtopic not found.';
+                this.subtopicContent= [{"value": "Subtopic not found."}];
       
               }
             } else {
-              this.valuecontent = 'Topic not found.';
+              this.subtopicContent = [{"value": "Topic not found."}];
     
             }
-          })
-          .catch((error) => {
+          }, (error) => {
             console.error('Error fetching data:', error);
-            this.valuecontent = 'Error fetching data. Please try again later.';
-  
+            this.subtopicContent = [{"value": "Error fetching data. Please try again later."}];
           });
-      } else {
-        this.valuecontent = 'Invalid subtopic format.';
-      }
-    } else {
-      this.valuecontent = 'noSubtopicContent';
     }
+  }
   }
 }
