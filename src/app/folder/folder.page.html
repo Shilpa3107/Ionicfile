@@ -23,7 +23,7 @@
       <div>
         <div *ngFor = "let item of subtopicContent">
            <p>{{item.value}}</p>
-           <p>{{item.imageUrl}}</p>
+           <img [src] = "item.imageUrl">
            <p>{{item.table}}</p>
         </div>
       <!-- <p [innerHTML]="valuecontent"></p> -->
