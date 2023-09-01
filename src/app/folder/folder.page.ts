@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -50,14 +50,6 @@ export class FolderPage implements OnInit {
               //  console.log("Subtopic :",subtopicObj);
               if (subtopicObj) {
                 this.subtopicContent = subtopicObj.content;
-                this.num = this.subtopicContent.length;
-                console.log("Length: ",this.num)
-                //  console.log("SUbtopiccontent : ",this.subtopicContent)
-                //  console.log("SubtopicObj content : ",subtopicObj.content)
-                //  const content = subtopicObj.content.value;
-                //  this.contentItems = subtopicObj.content;
-                //  console.log("Content : ",this.contentItems);
-                //  this.valuecontent = content;
               } else {
                 this.subtopicContent= [{"value": "Subtopic not found."},
                 {"imageUrl":"Data format error: Unable to find image url."},
@@ -102,5 +94,25 @@ export class FolderPage implements OnInit {
           });
     }
   }
+  }
+  @ViewChild('myModal') modalRef!: ElementRef;
+
+  modalImageUrl: string = '';
+  modalImageDescrip: string = '';
+
+  openModal(imageUrl: string, describe: string) {
+    // Open the modal popup
+    const modal: HTMLElement = this.modalRef.nativeElement;
+    modal.style.display = 'block';
+
+    // Set the modal content to the clicked image and description
+    this.modalImageUrl = imageUrl;
+    this.modalImageDescrip = describe;
+  }
+
+  closeModal() {
+    // Close the modal popup
+    const modal: HTMLElement = this.modalRef.nativeElement;
+    modal.style.display = 'none';
   }
 }
