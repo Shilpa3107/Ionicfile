@@ -59,16 +59,46 @@ export class FolderPage implements OnInit {
                 //  console.log("Content : ",this.contentItems);
                 //  this.valuecontent = content;
               } else {
-                this.subtopicContent= [{"value": "Subtopic not found."}];
+                this.subtopicContent= [{"value": "Subtopic not found."},
+                {"imageUrl":"Data format error: Unable to find image url."},
+                {
+                  "describe":"Data format error: Unable to find description"
+                },
+                {
+                  "table":"Data format error: Unable to find table"
+                },
+                {
+                  "description":"Data format error: Unable to find description"
+                }];
       
               }
             } else {
-              this.subtopicContent = [{"value": "Topic not found."}];
+              this.subtopicContent = [{"value": "Topic not found."},
+              {"imageUrl":"Data format error: Unable to find image url."},
+              {
+                "describe":"Data format error: Unable to find description"
+              },
+              {
+                "table":"Data format error: Unable to find table"
+              },
+              {
+                "description":"Data format error: Unable to find description"
+              }];
     
             }
           }, (error) => {
             console.error('Error fetching data:', error);
-            this.subtopicContent = [{"value": "Error fetching data. Please try again later."}];
+            this.subtopicContent = [{"value": "Error fetching data. Please try again later."},
+            {"imageUrl":"Data format error: Unable to find image url."},
+            {
+              "describe":"Data format error: Unable to find description"
+            },
+            {
+              "table":"Data format error: Unable to find table"
+            },
+            {
+              "description":"Data format error: Unable to find description"
+            }];
           });
     }
   }
