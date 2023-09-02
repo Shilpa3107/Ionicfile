@@ -23,8 +23,8 @@
       <div>
         <div *ngFor="let item of subtopicContent">
           <p>{{ item.value }}</p>
-          <img [src]="item.imageUrl" (click)="openModal(item.imageUrl, item.describe)" />
-          <p style="text-align:center">{{item.describe}}</p>
+          <img [src]="item.imageUrl" (click)="openModal(item.imageUrl, item.describe)" class="small-image"/>
+          <p style="margin-left: 300px;">{{item.describe}}</p>
           <p>{{ item.table }}</p>
     <div *ngIf="item.tableContent">
       <table class="table">

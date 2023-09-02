@@ -132,6 +132,13 @@ h3 {
 .names {
   display: inline;
 }
+.small-image {
+  max-width: 650px; 
+  max-height: 650px; 
+  align-items: center;
+  justify-content: center;
+  display:flex;
+}
 .modal {
   display: none;
   position: fixed;
