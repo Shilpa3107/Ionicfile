@@ -24,22 +24,24 @@
         <div *ngFor="let item of subtopicContent">
           <p>{{ item.value }}</p>
           <img [src]="item.imageUrl" (click)="openModal(item.imageUrl, item.describe)" class="small-image"/>
-          <p style="margin-left: 300px;">{{item.describe}}</p>
-          <p>{{ item.table }}</p>
-    <div *ngIf="item.tableContent">
-      <table class="table">
-        <tr>
-          <th *ngFor="let nameItem of item.tableContent" class="text-center">
-            {{ nameItem.name }}
-          </th>
-        </tr>
-        <tr *ngFor="let row of item.tableContent[0]?.content; let i = index">
-          <td *ngFor="let nameItem of item.tableContent" class="text-center">
-            {{ nameItem.content[i] }}
-          </td>
-        </tr>
-      </table>
-    </div>
+          <p style="margin-left: 300px;">{{ item.describe }}</p>
+          
+          <p>{{ item.description }}</p> <!-- Move this line above the table -->
+          
+          <div *ngIf="item.tableContent">
+            <table class="table">
+              <tr>
+                <th *ngFor="let nameItem of item.tableContent" class="text-center">
+                  {{ nameItem.name }}
+                </th>
+              </tr>
+              <tr *ngFor="let row of item.tableContent[0]?.content; let i = index">
+                <td *ngFor="let nameItem of item.tableContent" class="text-center">
+                  {{ nameItem.content[i] }}
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
       
