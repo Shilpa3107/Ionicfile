@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu contentId="main-content" type="overlay" #menu>
       <ion-content>
         <div>
         <ion-list id="inbox-list">
@@ -34,7 +34,7 @@
             
             <ion-list *ngIf="isSubtopicExpanded(label)">
               <ion-item *ngFor="let subtopic of label.subtopics" lines="none"   routerDirection="root" [routerLink] ="[selectedMenu, label.url + '_' + subtopic.url]"  detail = "false" routerLinkActive="selected" 
-              a (click)="doSomeLogic( label.url,subtopic.url, selectedMenu)">
+              a (click)="doSomeLogic( label.url,subtopic.url, selectedMenu); menu.close()" >
                 <ion-label class="subtopicname">{{ subtopic.name }}</ion-label>
               </ion-item>
             </ion-list>
