@@ -110,4 +110,18 @@ export class FolderPage implements OnInit {
     const modal: HTMLElement = this.modalRef.nativeElement;
     modal.style.display = 'none';
   }
+
+  openTableModal(): void {
+    const modal = document.getElementById('myModal');
+    if (modal) {
+      modal.style.display = 'block';
+    }
+  }
+
+  closeTableModal(): void {
+    const modal = document.getElementById('myModal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
 }
