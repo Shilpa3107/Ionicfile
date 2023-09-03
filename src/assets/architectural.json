@@ -1,0 +1,61 @@
+[
+    {
+      "name":"Frontend",
+      "content":["The user interface and presentation layer of the e-commerce platform. It includes web pages, mobile apps, and other user-facing elements."]
+    },
+    {
+      "name":"Backend",
+      "content": ["The server-side logic responsible for processing requests, handling business logic, and interacting with the database."]
+    }
+    ,
+    {
+      "name":"Database",
+      "content":["The storage system that stores and manages product data, user information, orders, and other essential data."]
+    },
+    {
+      "name":"Payment Gateway",
+      "content":["A service that securely handles payment transactions between the customer, the e-commerce platform, and financial institutions."]
+    },
+    {
+      "name":"Product Catalog",
+      "content":["A centralized repository that stores and organizes information about the products available for sale on the platform."]
+    },
+    {
+      "name":"Shopping Cart",
+      "content": ["A feature that allows users to collect and manage the products they want to purchase before proceeding to checkout."]
+    }
+    ,
+    {
+      "name":"Order Management",
+      "content":["The process of handling and tracking customer orders from the time they are placed until they are delivered or fulfilled."]
+    },
+    {
+      "name":"User Authentication",
+      "content":["The system that manages user registration, login, and security features to protect user accounts and data."]
+    },
+    {
+      "name":"Inventory Management",
+      "content":["A component that monitors and updates the availability of products in stock, ensuring accurate stock levels."]
+    },
+    {
+      "name":"Search and Filtering",
+      "content":["Tools that help users find products quickly and efficiently by searching and applying filters based on various criteria."]
+    },
+    {
+      "name":"Recommendations",
+      "content":["Personalized product recommendations based on user behavior and preferences to enhance the shopping experience."]
+    },
+    {
+      "name":"Reviews and Ratings",
+      "content":["A feature that allows users to leave reviews and rate products, providing valuable feedback for other shoppers."]
+    },
+    {
+      "name":"Analytics",
+      "content":["Tools and services that collect and analyze data to gain insights into user behavior, sales performance, and other key metrics."]
+    },
+    {
+      "name":"Content Management",
+      "content":["A system to manage and organize the content of the e-commerce platform, including product descriptions, images, and promotional content."]
+    }
+    
+  ]
