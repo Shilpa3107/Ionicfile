@@ -67,27 +67,49 @@ export class FolderPage implements OnInit {
                   }
                 });
               } else {
-                this.subtopicContent = [
-                  { value: 'Subtopic not found.' },
-                  // ...
-                ];
+                this.subtopicContent= [{"value": "Subtopic not found."},
+                {"imageUrl":"Data format error: Unable to find image url."},
+                {
+                  "describe":"Data format error: Unable to find description"
+                },
+                {
+                  "table":"Data format error: Unable to find table"
+                },
+                {
+                  "description":"Data format error: Unable to find description"
+                }];
+      
               }
             } else {
-              this.subtopicContent = [
-                { value: 'Topic not found.' },
-                // ...
-              ];
+              this.subtopicContent = [{"value": "Topic not found."},
+              {"imageUrl":"Data format error: Unable to find image url."},
+              {
+                "describe":"Data format error: Unable to find description"
+              },
+              {
+                "table":"Data format error: Unable to find table"
+              },
+              {
+                "description":"Data format error: Unable to find description"
+              }];
+    
             }
-          })
-          .catch((error) => {
+          }, (error) => {
             console.error('Error fetching data:', error);
-            this.subtopicContent = [
-              { value: 'Error fetching data. Please try again later.' },
-              // ...
-            ];
+            this.subtopicContent = [{"value": "Error fetching data. Please try again later."},
+            {"imageUrl":"Data format error: Unable to find image url."},
+            {
+              "describe":"Data format error: Unable to find description"
+            },
+            {
+              "table":"Data format error: Unable to find table"
+            },
+            {
+              "description":"Data format error: Unable to find description"
+            }];
           });
-      }
     }
+  }
   }
 
   @ViewChild('myModal') modalRef!: ElementRef;
@@ -99,16 +121,18 @@ export class FolderPage implements OnInit {
     // Open the modal popup
     const modal: HTMLElement = this.modalRef.nativeElement;
     modal.style.display = 'block';
-
+  
     // Set the modal content to the clicked image and description
     this.modalImageUrl = imageUrl;
     this.modalImageDescrip = describe;
+    console.log("OpenModal")
   }
 
   closeModal() {
     // Close the modal popup
     const modal: HTMLElement = this.modalRef.nativeElement;
     modal.style.display = 'none';
+    console.log("CloseModal")
   }
 
   openTableModal(): void {
