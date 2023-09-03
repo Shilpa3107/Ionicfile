@@ -34,9 +34,9 @@
           </ion-card>
           <p>{{ item.value }}</p>
           <img [src]="item.imageUrl" (click)="openModal(item.imageUrl, item.describe)" class="small-image"/>
-          <p style="margin-left: 300px;">{{ item.describe }}</p>
+          <h3 style="margin-left: 300px;">{{ item.describe }}</h3>
           
-          <p>{{ item.description }}</p> <!-- Move this line above the table -->
+          <h3 style="text-align: center;">{{ item.description }}</h3> 
           
           <div *ngIf="item.tableContent" (click)="openTableModal()">
             <table class="table">
