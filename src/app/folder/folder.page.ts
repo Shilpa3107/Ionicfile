@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
@@ -51,9 +52,10 @@ export class FolderPage implements OnInit {
               );
               if (subtopicObj) {
                 this.subtopicContent = subtopicObj.content;
-                
+                 
                 // Check if 'item.table' is provided and load the associated JSON file
                 this.subtopicContent.forEach((item: any) => {
+                  
                   if (item.table) {
                     const tableUrl = 'assets/' + item.table + '.json';
                     fetch(tableUrl)
@@ -67,27 +69,59 @@ export class FolderPage implements OnInit {
                   }
                 });
               } else {
-                this.subtopicContent = [
-                  { value: 'Subtopic not found.' },
-                  // ...
-                ];
+                this.subtopicContent= [{"value": "Subtopic not found."},
+                {
+                  "audio":"Data format error: Unable to find audio"
+                },
+                {"imageUrl":"Data format error: Unable to find image url."},
+                {
+                  "describe":"Data format error: Unable to find description"
+                },
+                {
+                  "table":"Data format error: Unable to find table"
+                },
+                {
+                  "description":"Data format error: Unable to find description"
+                }];
+      
               }
             } else {
-              this.subtopicContent = [
-                { value: 'Topic not found.' },
-                // ...
-              ];
+              this.subtopicContent = [{"value": "Topic not found."},
+              {
+                "audio":"Data format error: Unable to find audio"
+              },
+              {"imageUrl":"Data format error: Unable to find image url."},
+              {
+                "describe":"Data format error: Unable to find description"
+              },
+              {
+                "table":"Data format error: Unable to find table"
+              },
+              {
+                "description":"Data format error: Unable to find description"
+              }];
+    
             }
-          })
-          .catch((error) => {
+          }, (error) => {
             console.error('Error fetching data:', error);
-            this.subtopicContent = [
-              { value: 'Error fetching data. Please try again later.' },
-              // ...
-            ];
+            this.subtopicContent = [{"value": "Error fetching data. Please try again later."},
+            {
+              "audio":"Data format error: Unable to find audio"
+            },
+            {"imageUrl":"Data format error: Unable to find image url."},
+            {
+              "describe":"Data format error: Unable to find description"
+            },
+            {
+              "table":"Data format error: Unable to find table"
+            },
+            {
+              "description":"Data format error: Unable to find description"
+            }
+          ];
           });
-      }
     }
+  }
   }
 
   @ViewChild('myModal') modalRef!: ElementRef;
@@ -99,16 +133,18 @@ export class FolderPage implements OnInit {
     // Open the modal popup
     const modal: HTMLElement = this.modalRef.nativeElement;
     modal.style.display = 'block';
-
+  
     // Set the modal content to the clicked image and description
     this.modalImageUrl = imageUrl;
     this.modalImageDescrip = describe;
+    console.log("OpenModal")
   }
 
   closeModal() {
     // Close the modal popup
     const modal: HTMLElement = this.modalRef.nativeElement;
     modal.style.display = 'none';
+    console.log("CloseModal")
   }
 
   openTableModal(): void {
@@ -124,4 +160,10 @@ export class FolderPage implements OnInit {
       modal.style.display = 'none';
     }
   }
+
+  getAudioPath(audioIdentifier: string): string {
+    //console.log("Audio function")
+    // Construct the path to the audio file based on the identifier
+    return `assets/audio/${audioIdentifier}`;
+}
 }
