@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
@@ -51,9 +52,10 @@ export class FolderPage implements OnInit {
               );
               if (subtopicObj) {
                 this.subtopicContent = subtopicObj.content;
-                
+                 
                 // Check if 'item.table' is provided and load the associated JSON file
                 this.subtopicContent.forEach((item: any) => {
+                  
                   if (item.table) {
                     const tableUrl = 'assets/' + item.table + '.json';
                     fetch(tableUrl)
@@ -68,6 +70,9 @@ export class FolderPage implements OnInit {
                 });
               } else {
                 this.subtopicContent= [{"value": "Subtopic not found."},
+                {
+                  "audio":"Data format error: Unable to find audio"
+                },
                 {"imageUrl":"Data format error: Unable to find image url."},
                 {
                   "describe":"Data format error: Unable to find description"
@@ -82,6 +87,9 @@ export class FolderPage implements OnInit {
               }
             } else {
               this.subtopicContent = [{"value": "Topic not found."},
+              {
+                "audio":"Data format error: Unable to find audio"
+              },
               {"imageUrl":"Data format error: Unable to find image url."},
               {
                 "describe":"Data format error: Unable to find description"
@@ -97,6 +105,9 @@ export class FolderPage implements OnInit {
           }, (error) => {
             console.error('Error fetching data:', error);
             this.subtopicContent = [{"value": "Error fetching data. Please try again later."},
+            {
+              "audio":"Data format error: Unable to find audio"
+            },
             {"imageUrl":"Data format error: Unable to find image url."},
             {
               "describe":"Data format error: Unable to find description"
@@ -106,7 +117,8 @@ export class FolderPage implements OnInit {
             },
             {
               "description":"Data format error: Unable to find description"
-            }];
+            }
+          ];
           });
     }
   }
@@ -148,4 +160,10 @@ export class FolderPage implements OnInit {
       modal.style.display = 'none';
     }
   }
+
+  getAudioPath(audioIdentifier: string): string {
+    //console.log("Audio function")
+    // Construct the path to the audio file based on the identifier
+    return `assets/audio/${audioIdentifier}`;
+}
 }

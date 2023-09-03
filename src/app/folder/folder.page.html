@@ -22,6 +22,16 @@
       <br>
       <div>
         <div *ngFor="let item of subtopicContent">
+          <ion-card color="dark" *ngIf="item.audio">
+            <ion-card-header>
+              <ion-card-title>AudioFile</ion-card-title>
+              <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+            </ion-card-header>
+  
+            <ion-card-content>
+              <audio [src]="getAudioPath(item.audio)" controls></audio>
+            </ion-card-content>
+          </ion-card>
           <p>{{ item.value }}</p>
           <img [src]="item.imageUrl" (click)="openModal(item.imageUrl, item.describe)" class="small-image"/>
           <p style="margin-left: 300px;">{{ item.describe }}</p>
