@@ -3,7 +3,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Josefin+Sans:wght@200;300&family=Lobster&family=Pacifico&family=Roboto:ital,wght@1,100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@500&family=Dosis&family=Josefin+Sans:wght@200;300&family=Lobster&family=Pacifico&family=Roboto:ital,wght@1,100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@500&family=Dosis&family=Josefin+Sans:wght@200;300&family=Lobster&family=Pacifico&family=Roboto+Slab:wght@700&family=Roboto:ital,wght@1,100&display=swap');
 
+
+.head{
+ text-align: center;
+ text-transform: capitalize;
+ font-size: 45px;
+ font-family: 'Dosis', sans-serif;
+ position: absolute;
+ bottom: 100px;
+ right: 90px;
+ font-weight: 900;
+}
+.image{
+   width:100%;
+   height: 600px;
+
+}
+@media(max-width:915px){
+.head{
+  font-size: 30px;
+  bottom:10px;
+  font-weight: 600;
+  right:8px;
+}
+}
 // Define your styles
 h1 {
   text-align: center;
@@ -20,7 +45,7 @@ div {
 section {
   background-image: url("https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=996&t=st=1687872269~exp=1687872869~hmac=2d9aedbbeea8ea6df0118f9a2ae7d464c1a8c80ec6ec426c198f1e0929ac352d");
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .content img {
