@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'folder/:id/:topic',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   }
 ];
 
