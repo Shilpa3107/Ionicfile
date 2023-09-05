@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute ,Router} from '@angular/router';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class FolderPage implements OnInit {
   contentItems: any[] = [];
   num: number = 0;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
@@ -165,5 +165,8 @@ export class FolderPage implements OnInit {
     //console.log("Audio function")
     // Construct the path to the audio file based on the identifier
     return `assets/audio/${audioIdentifier}`;
+}
+navigateToSearchPage(){
+  this.router.navigate(['/search']);
 }
 }

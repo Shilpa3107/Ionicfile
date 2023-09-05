@@ -1,9 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start" class="searchbutton"(click)="navigateToSearchPage()">Search
+      <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <!-- <ion-title>{{ folder }}</ion-title> -->
   </ion-toolbar>
 </ion-header>
 
@@ -557,5 +557,16 @@ Maintenance activities are typically carried out by a dedicated team or individu
         </div>
         </section>
     </ng-container>
+    <ng-container *ngIf="folder ===''">
+      <section class = front-section>
+        <div>
+       <h1 class="head">WELCOME 
+        <br>TO 
+        <br>SYSTEM 
+        <br>DESIGN</h1>
+       </div>
+       <img class ="image" src = "https://img.freepik.com/premium-photo/laptop-computer-notebook-glasses-coffee-cup-flower-pot-green-background-top-view_35674-12153.jpg?w=1060" alt ="">
+    </section>   
+        </ng-container>
   </section>
 </ion-content>

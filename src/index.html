@@ -20,6 +20,66 @@
 </head>
 
 <body>
+  <script>
+    const jsonFileNames = [
+  'assets/casestudies.json',
+  'assets/home.json',
+  'assets/practices.json',
+  'assets/tool.json'
+];
+
+async function loadJSONFile(filename) {
+  const response = await fetch(filename);
+  const data = await response.json();
+  return data;
+}
+
+function capitalizeWords(sentence){
+  return sentence.replace(/\b\w/g, match => match.toUpperCase());
+}
+
+function performSearch(keyword) {
+  // Clear previous search results
+  const searchResultsContainer = document.getElementById('searchResults');
+  searchResultsContainer.innerHTML = '';
+
+  // Loop through your JSON files
+  for (const filename of jsonFileNames) {
+    loadJSONFile(filename).then(data => {
+      // Loop through topics and subtopics in each file
+      const capitalizedWord = capitalizeWords(keyword);
+      data.topics.forEach(topic => {
+        topic.subtopics.forEach(subtopic => {
+          if (subtopic.name.includes(capitalizedWord)) {
+            const parts=filename.split(/[\\/]/);
+            const filewithextension = parts[parts.length-1];
+            const name = filewithextension.split('.')[0];
+            const word = topic.name;
+            const hyphenatedname = word.replace(/ /g, '-');
+            
+            // Display the subtopic name, topic name, and JSON file name
+            const resultItem = document.createElement('div');
+            resultItem.innerHTML = `
+             <br>
+              <p style="margin-left:30px">Name: ${subtopic.name}</p>
+              <p style="margin-left:30px">Url: <a href="folder/${name}/${hyphenatedname}_${subtopic.url}">${subtopic.name}</a></p>
+            `;
+            searchResultsContainer.appendChild(resultItem);
+           
+            console.log(name);
+            
+            console.log(hyphenatedname);
+            console.log(resultItem);
+          }
+        });
+      });
+    });
+  }
+}
+
+
+
+  </script>
   <app-root></app-root>
 </body>
 
