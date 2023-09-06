@@ -1,9 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start" class="searchbutton"(click)="navigateToSearchPage()">Search
+    <ion-buttons slot="start" >
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <!-- <ion-title>{{ folder }}</ion-title> -->
+    <ion-title  size="20px"class="searchbutton"(click)="navigateToSearchPage()">Search</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -33,6 +33,14 @@
             </ion-card-content>
           </ion-card>
           <p>{{ item.value }}</p>
+          <h3>{{item.heading}}</h3>
+          <ion-list *ngFor="let k of item.list">
+            <ul>
+              <li>
+                {{k}}
+                </li>
+            </ul>
+          </ion-list>
           <img [src]="item.imageUrl" (click)="openModal(item.imageUrl, item.describe)" class="small-image"/>
           <h3 style="margin-left: 300px;">{{ item.describe }}</h3>
           
