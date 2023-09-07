@@ -61,8 +61,8 @@ function performSearch(keyword) {
             const resultItem = document.createElement('div');
             resultItem.innerHTML = `
              <br>
-              <p style="margin-left:30px">Name: ${subtopic.name}</p>
-              <p style="margin-left:30px">Url: <a href="folder/${name}/${hyphenatedname}_${subtopic.url}">${subtopic.name}</a></p>
+              <p style="margin-left:30px; font-weight:bolder">Name: ${subtopic.name}</p>
+              <p style="margin-left:30px; font-weight:bolder">Url: <a href="folder/${name}/${hyphenatedname}_${subtopic.url}">${subtopic.name}</a></p>
             `;
             searchResultsContainer.appendChild(resultItem);
            
