@@ -3,8 +3,14 @@
     <ion-buttons slot="start" >
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title  size="20px"class="searchbutton"(click)="navigateToSearchPage()"><ion-icon name="search"></ion-icon></ion-title>
-    <!-- <ion-icon name="search"></ion-icon> -->
+    <div class="ion-no-padding" style="pointer-events:none;" >
+      <ion-title >{{ folder }}</ion-title>
+    </div>
+    <br>
+    <div>
+    <ion-title size="20px"class="searchbutton"(click)="navigateToSearchPage()"><ion-icon name="search"></ion-icon></ion-title>
+    
+    </div><!-- <ion-icon name="search"></ion-icon> -->
   </ion-toolbar>
 </ion-header>
 
@@ -22,10 +28,10 @@
       <hr>
       <br>
       <div>
-        <div *ngFor="let item of subtopicContent">
-          <ion-card color="dark" *ngIf="item.audio">
+        <div *ngFor="let item of subtopicContent" >
+          <ion-card style="width:360px;" *ngIf="item.audio">
             <ion-card-header>
-              <ion-card-title>AudioFile</ion-card-title>
+              <!-- <ion-card-title>AudioFile</ion-card-title> -->
               <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
             </ion-card-header>
   
@@ -33,15 +39,20 @@
               <audio [src]="getAudioPath(item.audio)" controls></audio>
             </ion-card-content>
           </ion-card>
-          <p>{{ item.value }}</p>
-          <h3>{{item.heading}}</h3>
-          <ion-list *ngFor="let k of item.list">
-            <ul>
-              <li>
-                {{k}}
-                </li>
-            </ul>
-          </ion-list>
+          <p class="subpara">{{ item.value }}</p>
+          <h3 class="subheader">{{item.heading}}</h3>
+          <ul class="sublist">
+            <li *ngFor="let d of item.list">
+              {{d}}
+            </li>
+          </ul>
+          <!-- <ion-list>
+           <ion-item *ngFor="let k of item.list">
+             {{k}}
+           </ion-item> -->
+    
+           
+          <!-- </ion-list> -->
           <img [src]="item.imageUrl" (click)="openModal(item.imageUrl, item.describe)" class="small-image"/>
           <h3 style="margin-left: 300px;">{{ item.describe }}</h3>
           

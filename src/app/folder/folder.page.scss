@@ -43,7 +43,7 @@ div {
 }
 
 section {
-  background-image: url("https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=996&t=st=1687872269~exp=1687872869~hmac=2d9aedbbeea8ea6df0118f9a2ae7d464c1a8c80ec6ec426c198f1e0929ac352d");
+  // background-image: url("https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=996&t=st=1687872269~exp=1687872869~hmac=2d9aedbbeea8ea6df0118f9a2ae7d464c1a8c80ec6ec426c198f1e0929ac352d");
   font-weight: bold;
   margin-left: 5px;
   margin-right:5px;
@@ -228,6 +228,12 @@ h3 {
   cursor:pointer;
   color:black;
   font-weight: bolder;
-  // background-color: blueviolet;
+  text-align: right;
+  margin-top:-70px;
+ //background-color: blueviolet;
   
+}
+.subpara, .sublist,.subheader{
+  margin-bottom:-4px;
+  margin-top:-2px;
 }
