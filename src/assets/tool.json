@@ -2688,6 +2688,9 @@
                                 ]
                             },
                             {
+                                "imageUrl":"https://images.edrawsoft.com/articles/application-architecture-diagram/application-architecture.png"
+                            },
+                            {
                                 "list": [
                                     "Clarity and Communication: Sample architecture diagrams are designed to communicate complex technical concepts in a clear and understandable manner. They use symbols, icons, and notations to represent components, connections, and data flows.",
                                     "Common Design Patterns: They showcase common design patterns and principles, such as microservices architecture, monolithic architecture, serverless computing, and more. These examples help designers choose the right pattern for their specific use case.",
@@ -2698,6 +2701,9 @@
                                     "Integration Points: Modern systems often rely on third-party services and APIs. Sample diagrams can showcase how different services are integrated into the system, emphasizing the importance of well-defined interfaces and protocols.",
                                     "Monitoring and Analytics: Effective monitoring and analytics are essential for maintaining system health. Sample architecture diagrams may include monitoring tools, log analysis services, and dashboards to illustrate how system performance is tracked and optimized."
                                 ]
+                            },
+                            {
+                                "imageUrl":"https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2021Q1/architectural-diagram-types/Application-architecture-example.png"
                             },
                             {
                                 "value": "In summary, sample architecture diagrams in system design templates and examples serve as valuable resources for architects, designers, and developers. They offer insights into best practices, common design patterns, and strategies for addressing scalability, resilience, security, data management, and more. By referencing these samples, design teams can make informed decisions, streamline the design process, and create robust systems that meet the needs of their organizations and users."
