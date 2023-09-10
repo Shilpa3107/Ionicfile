@@ -73,6 +73,12 @@ export class FolderPage implements OnInit {
                 {
                   "audio":"Data format error: Unable to find audio"
                 },
+                {
+                   "heading":"Data format error: Unable to find heading"
+                },
+                {
+                  "list":"Data format error: Unable to find list"
+                },
                 {"imageUrl":"Data format error: Unable to find image url."},
                 {
                   "describe":"Data format error: Unable to find description"
@@ -89,6 +95,12 @@ export class FolderPage implements OnInit {
               this.subtopicContent = [{"value": "Topic not found."},
               {
                 "audio":"Data format error: Unable to find audio"
+              },
+              {
+                "heading":"Data format error: Unable to find heading"
+             },
+              {
+                "list":"Data format error: Unable to find list"
               },
               {"imageUrl":"Data format error: Unable to find image url."},
               {
@@ -107,6 +119,12 @@ export class FolderPage implements OnInit {
             this.subtopicContent = [{"value": "Error fetching data. Please try again later."},
             {
               "audio":"Data format error: Unable to find audio"
+            },
+            {
+              "heading":"Data format error: Unable to find heading"
+           },
+            {
+              "list":"Data format error: Unable to find list"
             },
             {"imageUrl":"Data format error: Unable to find image url."},
             {
