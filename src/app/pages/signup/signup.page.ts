@@ -18,27 +18,30 @@ export class SignupPage implements OnInit {
 
   ngOnInit() {
   }
-  signup(){
-   this.fireservice.signup({email:this.email, password: this.password}).then((res: any)=>{
-    if(res.user.uid){
-      let data={
-        email:this.email,
-        password:this.password,
-        name:this.name,
-        uid:res.user.uid
+  signup(){ 
+    this.fireservice.signup({email:this.email,password:this.password}).then((res: any)=>{
+      if(res.user.uid){
+        let data = {
+          email:this.email,
+          password:this.password,
+          name:this.name,
+          uid:res.user.uid
+        }
+        this.fireservice.saveDetails(data).then(res=>{
+         alert('Account Created!');
+        },err=>{
+          console.log(err);
+        })
       }
-      this.fireservice.saveDetails(data).then((res:any)=>{
-        alert('Account Created!');
-      },err=>{
-        console.log(err);
-      })
-    }
-  },err=>{
-    alert(err.message);
+    },err=>{
+      alert(err.message);
 
-    console.log(err);
-   }
-   )
+      console.log(err);
+    })
+  }
+
+  navigatetologin(){
+    this.router.navigate(['/login'])
   }
 
 }
