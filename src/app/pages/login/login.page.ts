@@ -26,6 +26,7 @@ password: any;
           next: (res: any) => {
             console.log(res);
             alert('Welcome ' + res['name']);
+            this.router.navigate(['/folder/home'])
           },
           error: (err: any) => {
             console.log(err);
