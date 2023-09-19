@@ -3,23 +3,23 @@
     <ion-title>signup</ion-title>
   </ion-toolbar>
   <ion-buttons slot="start">
-    <ion-back-button></ion-back-button>
+    <!-- <ion-back-button></ion-back-button> -->
   </ion-buttons>
 </ion-header>
 
 <ion-content class="ion-padding">
 <div class="form">
   <ion-item>
-    <ion-label position="stacked">Name</ion-label>
+    <ion-label position="stacked" style="font-weight: bolder;">Name</ion-label>
     <ion-input [(ngModel)] ="name"></ion-input>
   </ion-item>
   <ion-item>
-  <ion-label position="stacked">Email</ion-label>
+  <ion-label position="stacked" style="font-weight: bolder;">Email</ion-label>
   <ion-input [(ngModel)] = 'email'></ion-input>
   </ion-item>
   <br>
   <ion-item>
-    <ion-label position="stacked">Password</ion-label>
+    <ion-label position="stacked" style="font-weight: bolder;">Password</ion-label>
     <ion-input [(ngModel)] = 'password'></ion-input>
   </ion-item>
   <ion-button (click)="signup()" expand="block">Signup</ion-button>
